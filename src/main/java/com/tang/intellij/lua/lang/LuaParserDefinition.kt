@@ -28,6 +28,7 @@ import com.intellij.psi.TokenType
 import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
+import com.tang.intellij.lua.comment.psi.LuaDocElementType
 //import com.tang.intellij.lua.comment.psi.LuaDocElementType
 import com.tang.intellij.lua.comment.psi.LuaDocTypes
 //import com.tang.intellij.lua.comment.psi.impl.LuaCommentImpl
@@ -75,19 +76,18 @@ class LuaParserDefinition : ParserDefinition {
     }
 
     override fun createElement(node: ASTNode): PsiElement {
-//        val type = node.elementType
+        val type = node.elementType
 //        if (type === LuaElementType.DOC_COMMENT)
 //            return LuaCommentImpl(node)
-//        return if (type is LuaDocElementType
-//            || type === LuaElementType.DOC_TABLE_DEF
-//            || type === LuaElementType.DOC_TABLE_FIELD_DEF
-//            || type === LuaElementType.CLASS_DEF
-//            || type === LuaElementType.CLASS_FIELD_DEF
-//            || type === LuaElementType.TYPE_DEF
-//            || type === LuaElementType.DOC_ALIAS) {
-//            LuaDocTypes.Factory.createElement(node)
-//        } else LuaTypes.Factory.createElement(node)
-        return LuaTypes.Factory.createElement(node)
+        return if (type is LuaDocElementType
+            || type === LuaElementType.DOC_TABLE_DEF
+            || type === LuaElementType.DOC_TABLE_FIELD_DEF
+            || type === LuaElementType.CLASS_DEF
+            || type === LuaElementType.CLASS_FIELD_DEF
+            || type === LuaElementType.TYPE_DEF
+            || type === LuaElementType.DOC_ALIAS) {
+            LuaDocTypes.Factory.createElement(node)
+        } else LuaTypes.Factory.createElement(node)
     }
 
     companion object {

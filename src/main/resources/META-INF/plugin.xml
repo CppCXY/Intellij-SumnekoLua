@@ -35,6 +35,9 @@
                 language="Lua"
                 implementationClass="com.tang.intellij.lua.document.LuaDocumentationProvider"/>
         <lang.parserDefinition language="Lua" implementationClass="com.tang.intellij.lua.lang.LuaParserDefinition"/>
+        <lang.syntaxHighlighterFactory
+                language="Lua"
+                implementationClass="com.tang.intellij.lua.highlighting.LuaSyntaxHighlighterFactory"/>
 
         <!-- register a preloading activity. You need to init IntellijLanguageClient with your config, see readme -->
         <preloadingActivity implementation="com.cppcxy.intellij.sumnekolua.SumnekoPreloadingActivity" id="sumneko.proload"/>
@@ -78,8 +81,8 @@
 
     <actions>
         <!-- needed for hover -->
-        <action id="org.intellij.sdk.action.QuickDocAction" class="org.wso2.lsp4intellij.actions.LSPQuickDocAction">
-        </action>
+<!--        <action id="org.intellij.sdk.action.QuickDocAction" class="org.wso2.lsp4intellij.actions.LSPQuickDocAction">-->
+<!--        </action>-->
 
         <!-- needed for find references -->
         <action class="org.wso2.lsp4intellij.actions.LSPReferencesAction" id="LSPFindUsages">

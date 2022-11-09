@@ -377,7 +377,7 @@ public class LanguageServerWrapper {
                         }
                         // selectionListener.setManager(manager);
                         documentListener.setManager(manager);
-                        mouseListener.setManager(manager);
+//                        mouseListener.setManager(manager);
                         mouseMotionListener.setManager(manager);
                         caretListener.setManager(manager);
                         manager.registerListeners();

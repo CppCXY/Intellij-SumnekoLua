@@ -10,6 +10,7 @@ import com.intellij.formatting.service.FormattingService
 import com.intellij.lang.LanguageFormatting
 import com.intellij.psi.PsiFile
 import org.wso2.lsp4intellij.IntellijLanguageClient
+import org.wso2.lsp4intellij.requests.ReformatAccept
 import org.wso2.lsp4intellij.requests.ReformatHandler
 import org.wso2.lsp4intellij.utils.FileUtils
 import java.util.*
@@ -36,11 +37,26 @@ class EmmyLuaCodeStyle : AsyncDocumentFormattingService() {
                 override fun run() {
                     val uri = FileUtils.VFSToURI(request.context.virtualFile)
                     val range = request.formattingRanges.first();
-                    if(range.startOffset == 0){
-                        ReformatHandler.reformatFile(uri) { s -> request.onTextReady(s); };
-                    }
-                    else {
-                        ReformatHandler.reformatSelection(uri) { s -> request.onTextReady(s); };
+                    if (range.startOffset == 0) {
+                        ReformatHandler.reformatFile(uri, object : ReformatAccept {
+                            override fun Accept(s: String?) {
+                                request.onTextReady(s!!);
+                            }
+
+                            override fun Reject() {
+                                request.onError("formatting error", "syntax error")
+                            }
+                        })
+                    } else {
+                        ReformatHandler.reformatSelection(uri, object : ReformatAccept {
+                            override fun Accept(s: String?) {
+                                request.onTextReady(s!!);
+                            }
+
+                            override fun Reject() {
+                                request.onError("formatting error", "syntax error")
+                            }
+                        })
                     }
                 }
 

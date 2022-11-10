@@ -38,6 +38,10 @@
         <lang.syntaxHighlighterFactory
                 language="Lua"
                 implementationClass="com.tang.intellij.lua.highlighting.LuaSyntaxHighlighterFactory"/>
+        <!--        usage-->
+        <lang.findUsagesProvider language="Lua" implementationClass="com.tang.intellij.lua.usages.LuaFindUsagesProvider"/>
+        <findUsagesHandlerFactory implementation="com.tang.intellij.lua.usages.LuaFindUsagesHandlerFactory"/>
+        <usageTypeProvider implementation="com.tang.intellij.lua.usages.UsageTypeProvider"/>
 
         <!-- register a preloading activity. You need to init IntellijLanguageClient with your config, see readme -->
         <preloadingActivity implementation="com.cppcxy.intellij.sumnekolua.SumnekoPreloadingActivity" id="sumneko.proload"/>
@@ -85,9 +89,9 @@
 <!--        </action>-->
 
         <!-- needed for find references -->
-        <action class="org.wso2.lsp4intellij.actions.LSPReferencesAction" id="LSPFindUsages">
-            <keyboard-shortcut first-keystroke="shift alt F7" keymap="$default"/>
-        </action>
+<!--        <action class="org.wso2.lsp4intellij.actions.LSPReferencesAction" id="LSPFindUsages">-->
+<!--            <keyboard-shortcut first-keystroke="shift alt F7" keymap="$default"/>-->
+<!--        </action>-->
     </actions>
     <applicationListeners>
         <!-- required for lsp file sync -->

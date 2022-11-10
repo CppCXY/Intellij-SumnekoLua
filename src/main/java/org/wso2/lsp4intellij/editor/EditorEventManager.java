@@ -628,10 +628,12 @@ public class EditorEventManager {
                 return;
             }
             request.thenAccept(formatting -> {
-                if (formatting != null) {
+                if (formatting == null) {
 //                    invokeLater(() -> applyEdit(toEither((List<TextEdit>) formatting), "Reformat document", false));
-                    accept.Accept(formatting.get(0).getNewText());
+                    accept.Reject();
+                    return;
                 }
+                accept.Accept(formatting.get(0).getNewText());
             });
         });
     }
@@ -660,10 +662,12 @@ public class EditorEventManager {
 
             CompletableFuture<List<? extends TextEdit>> request = wrapper.getRequestManager().rangeFormatting(params);
             if (request == null) {
+                accept.Reject();
                 return;
             }
             request.thenAccept(formatting -> {
                 if (formatting == null) {
+                    accept.Reject();
                     return;
                 }
 
@@ -1002,7 +1006,7 @@ public class EditorEventManager {
             }
             s.append(singleLetter);
         }
-        return "";
+        return s.reverse().toString();
     }
 
     @SuppressWarnings("WeakerAccess")
@@ -1301,8 +1305,8 @@ public class EditorEventManager {
      * Adds all the listeners
      */
     public void registerListeners() {
-        editor.addEditorMouseListener(mouseListener);
-        editor.addEditorMouseMotionListener(mouseMotionListener);
+//        editor.addEditorMouseListener(mouseListener);
+//        editor.addEditorMouseMotionListener(mouseMotionListener);
         editor.getCaretModel().addCaretListener(caretListener);
         // Todo - Implement
         // editor.getSelectionModel.addSelectionListener(selectionListener)

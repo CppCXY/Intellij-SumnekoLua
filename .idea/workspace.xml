@@ -51,8 +51,8 @@
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
+    <option name="FILTER_INFO" value="false" />
+    <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -108,22 +108,103 @@
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/document/LuaDocumentationProvider.kt</url>
           <line>15</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/document/LuaDocumentationProvider.kt</url>
-          <line>19</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/document/LuaDocumentationProvider.kt</url>
-          <line>28</line>
-          <option name="timeStamp" value="8" />
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/wso2/lsp4intellij/editor/EditorEventManager.java</url>
-          <line>719</line>
-          <option name="timeStamp" value="9" />
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/lang/documentation/DocumentationProvider.java</url>
+          <line>190</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/lang/documentation/DocumentationProvider.java</url>
+          <line>175</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/lang/documentation/DocumentationProvider.java</url>
+          <line>169</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/lang/documentation/DocumentationProvider.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/lang/documentation/CompositeDocumentationProvider.java</url>
+          <line>206</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/lang/documentation/CompositeDocumentationProvider.java</url>
+          <line>194</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/lang/documentation/CompositeDocumentationProvider.java</url>
+          <line>115</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/lang/findUsages/LanguageFindUsages.java</url>
+          <line>39</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/lang/findUsages/LanguageFindUsages.java</url>
+          <line>63</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/find/findUsages/DefaultFindUsagesHandlerFactory.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/find/findUsages/DefaultFindUsagesHandlerFactory.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/find/findUsages/FindUsagesManager.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/find/findUsages/FindUsagesManager.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/find/findUsages/FindUsagesManager.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/find/findUsages/FindUsagesManager.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/find/findUsages/FindUsagesManager.java</url>
+          <line>190</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/find/findUsages/FindUsagesManager.java</url>
+          <line>218</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/wso2/lsp4intellij/listeners/LSPFileEventManager.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

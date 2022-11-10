@@ -124,21 +124,21 @@ public class LSPAnnotator extends ExternalAnnotator<Object, Object> {
     }
 
     private void updateAnnotations(AnnotationHolder holder, EditorEventManager eventManager) {
-        final List<AnnotationInfo> annotations = eventManager.getAnnotations();
-        if (annotations == null) {
-            return;
-        }
-        annotations.forEach(annotation -> {
-            if (annotation.getQuickFixes() == null || annotation.getQuickFixes().isEmpty()) {
-                return;
-            }
-            annotation.getQuickFixes().forEach(quickFixInfo ->
-                    holder.newAnnotation(annotation.getSeverity(), annotation.getMessage())
-                            .newFix(quickFixInfo.quickFix)
-                            .registerFix()
-                            .create()
-            );
-        });
+//        final List<AnnotationInfo> annotations = eventManager.getAnnotations();
+//        if (annotations == null) {
+//            return;
+//        }
+//        annotations.forEach(annotation -> {
+//            if (annotation.getQuickFixes() == null || annotation.getQuickFixes().isEmpty()) {
+//                return;
+//            }
+//            annotation.getQuickFixes().forEach(quickFixInfo ->
+//                    holder.newAnnotation(annotation.getSeverity(), annotation.getMessage())
+//                            .newFix(quickFixInfo.quickFix)
+//                            .registerFix()
+//                            .create()
+//            );
+//        });
     }
 
     @Nullable

@@ -1,34 +1,90 @@
+import de.undercouch.gradle.tasks.download.Download
+import org.gradle.internal.os.OperatingSystem
+
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.6.20"
-    id("org.jetbrains.intellij") version "1.6.0"
+    id("org.jetbrains.kotlin.jvm") version "1.8.21"
+    id("org.jetbrains.intellij") version "1.13.3"
+    id("de.undercouch.download").version("5.3.0")
 }
 
-group = "com.example"
-version = "1.0-SNAPSHOT"
+data class BuildData(
+        val ideaSDKShortVersion: String,
+        // https://www.jetbrains.com/intellij-repository/releases
+        val ideaSDKVersion: String,
+        val sinceBuild: String,
+        val untilBuild: String,
+        val archiveName: String = "IntelliJ-SumnekoLua",
+        val jvmTarget: String = "17",
+        val targetCompatibilityLevel: JavaVersion = JavaVersion.VERSION_17,
+        // https://github.com/JetBrains/gradle-intellij-plugin/issues/403#issuecomment-542890849
+        val instrumentCodeCompilerVersion: String = ideaSDKVersion,
+        val type: String = "IC"
+)
 
-repositories {
-    mavenCentral()
-    maven {
-        setUrl("https://maven.aliyun.com/repository/public/")
-        setUrl("https://maven.aliyun.com/repository/google/")
+val buildDataList = listOf(
+        BuildData(
+                ideaSDKShortVersion = "232",
+                ideaSDKVersion = "LATEST-EAP-SNAPSHOT",
+                sinceBuild = "232",
+                untilBuild = "232.*",
+                type = "IU"
+        )
+)
+
+group = "com.cppcxy"
+val sumnekoVersion = "3.6.22"
+
+val sumnekoProjectUrl = "https://github.com/LuaLS/lua-language-server"
+
+val buildVersion = System.getProperty("IDEA_VER") ?: buildDataList.first().ideaSDKShortVersion
+
+val buildVersionData = buildDataList.find { it.ideaSDKShortVersion == buildVersion }!!
+
+val runnerNumber = System.getenv("RUNNER_NUMBER") ?: "Dev"
+
+version = "${sumnekoVersion}.${runnerNumber}-IDEA${buildVersion}"
+
+val os = OperatingSystem.current()
+val sumnekoZip = if (os.isWindows) {
+    "lua-language-server-${sumnekoVersion}-win32-x64.zip"
+} else if (os.isLinux) {
+    "lua-language-server-${sumnekoVersion}-linux-x64.tar.gz"
+} else {
+    "lua-language-server-${sumnekoVersion}-darwin-x64.tar.gz"
+}
+
+// for future it should be lua-language-server-intellij
+task("download", type = Download::class) {
+    src(arrayOf(
+            "${sumnekoProjectUrl}/releases/download/${sumnekoVersion}/${sumnekoZip}",
+    ))
+    dest(sumnekoZip)
+}
+
+
+task("install", type = Copy::class) {
+    dependsOn("download")
+    from(zipTree("${sumnekoZip}")) {
+        into("server")
     }
+    destinationDir = file("src/main/resources")
 }
 
-dependencies {
-    api("org.eclipse.lsp4j:org.eclipse.lsp4j:0.17.0")
-    api("com.vladsch.flexmark:flexmark:0.34.60")
-    api("org.apache.commons:commons-lang3:3.12.0")
-//    implementation("com.github.ballerina-platform:lsp4intellij:0.95.0")
-}
 
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("2021.3")
-    type.set("IC") // Target IDE Platform
-
+    pluginName.set("Sumneko-Lua")
+    version.set(buildVersionData.ideaSDKVersion)
+    type.set(buildVersionData.type) // Target IDE Platform
+    sandboxDir.set("${project.buildDir}/${buildVersionData.ideaSDKShortVersion}/idea-sandbox")
     plugins.set(listOf(/* Plugin Dependencies */))
+}
+
+repositories {
+    maven(url = "https://www.jetbrains.com/intellij-repository/releases")
+    mavenCentral()
 }
 
 sourceSets {
@@ -38,18 +94,17 @@ sourceSets {
 }
 
 tasks {
-    // Set the JVM compatibility versions
-    withType<JavaCompile> {
-        sourceCompatibility = "11"
-        targetCompatibility = "11"
-    }
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = "11"
+        kotlinOptions.jvmTarget = buildVersionData.jvmTarget
     }
 
     patchPluginXml {
-        sinceBuild.set("213")
-        untilBuild.set("223.*")
+        sinceBuild.set(buildVersionData.sinceBuild)
+        untilBuild.set(buildVersionData.untilBuild)
+    }
+
+    instrumentCode {
+        compilerVersion.set(buildVersionData.instrumentCodeCompilerVersion)
     }
 
     signPlugin {
@@ -61,4 +116,26 @@ tasks {
     publishPlugin {
         token.set(System.getenv("PUBLISH_TOKEN"))
     }
+
+    buildPlugin {
+        dependsOn("install")
+    }
+
+    prepareSandbox {
+        doLast {
+            copy {
+                from("${project.projectDir}/src/main/resources/server")
+                into("${destinationDir.path}/${pluginName.get()}/server")
+            }
+        }
+    }
+
+//    withType<org.jetbrains.intellij.tasks.PrepareSandboxTask> {
+//        doLast {
+//            copy {
+//                from("")
+//                into("$destinationDir/${pluginName.get()}/server")
+//            }
+//        }
+//    }
 }

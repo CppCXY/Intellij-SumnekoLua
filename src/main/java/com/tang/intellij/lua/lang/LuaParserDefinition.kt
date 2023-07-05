@@ -31,6 +31,7 @@ import com.intellij.psi.tree.TokenSet
 import com.tang.intellij.lua.comment.psi.LuaDocElementType
 //import com.tang.intellij.lua.comment.psi.LuaDocElementType
 import com.tang.intellij.lua.comment.psi.LuaDocTypes
+import com.tang.intellij.lua.comment.psi.impl.LuaCommentImpl
 //import com.tang.intellij.lua.comment.psi.impl.LuaCommentImpl
 import com.tang.intellij.lua.lexer.LuaLexerAdapter
 import com.tang.intellij.lua.parser.LuaParser
@@ -77,8 +78,8 @@ class LuaParserDefinition : ParserDefinition {
 
     override fun createElement(node: ASTNode): PsiElement {
         val type = node.elementType
-//        if (type === LuaElementType.DOC_COMMENT)
-//            return LuaCommentImpl(node)
+        if (type === LuaElementType.DOC_COMMENT)
+            return LuaCommentImpl(node)
         return if (type is LuaDocElementType
             || type === LuaElementType.DOC_TABLE_DEF
             || type === LuaElementType.DOC_TABLE_FIELD_DEF

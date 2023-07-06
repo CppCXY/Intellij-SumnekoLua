@@ -35,6 +35,6 @@ public class LuaFileType extends LanguageFileType {
     @Nullable
     @Override
     public Icon getIcon() {
-        return LuaIcons.FILE;
+        return LuaIcons.INSTANCE.getFILE();
     }
 }

@@ -121,4 +121,13 @@ tasks {
     buildPlugin {
         dependsOn("install")
     }
+
+    prepareSandbox {
+        doLast {
+            copy {
+                from("${project.projectDir}/src/main/resources/server")
+                into("${destinationDir.path}/${pluginName.get()}/server")
+            }
+        }
+    }
 }

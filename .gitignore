@@ -44,3 +44,4 @@ bin/
 src/main/resources/server
 lua-language-server*
 .idea
+.run

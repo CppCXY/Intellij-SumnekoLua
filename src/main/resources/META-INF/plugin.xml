@@ -15,7 +15,7 @@
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
     Sumneko Lua Intellij port
-    make by CppCXY
+    made by CppCXY
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -38,6 +38,8 @@
                 implementationClass="com.tang.intellij.lua.highlighting.LuaSyntaxHighlighterFactory"/>
         <lang.braceMatcher language="Lua" implementationClass="com.tang.intellij.lua.braces.LuaBraceMatcher"/>
 
+        <highlightUsagesHandlerFactory implementation="com.tang.intellij.lua.codeInsight.highlighting.LuaHighlightUsagesHandlerFactory"/>
+        <readWriteAccessDetector implementation="com.tang.intellij.lua.codeInsight.LuaReadWriteAccessDetector"/>
         <platform.lsp.serverSupportProvider implementation="com.cppcxy.ide.lsp.SumnekoLspServerSupportProvider"/>
 
         <!-- for displaying the statusbar icon -->

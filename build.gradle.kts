@@ -90,6 +90,7 @@ repositories {
 sourceSets {
     main {
         java.srcDirs("gen")
+        resources.srcDir("src/main/resources")
     }
 }
 
@@ -120,22 +121,4 @@ tasks {
     buildPlugin {
         dependsOn("install")
     }
-
-    prepareSandbox {
-        doLast {
-            copy {
-                from("${project.projectDir}/src/main/resources/server")
-                into("${destinationDir.path}/${pluginName.get()}/server")
-            }
-        }
-    }
-
-//    withType<org.jetbrains.intellij.tasks.PrepareSandboxTask> {
-//        doLast {
-//            copy {
-//                from("")
-//                into("$destinationDir/${pluginName.get()}/server")
-//            }
-//        }
-//    }
 }

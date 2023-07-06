@@ -29,6 +29,7 @@ import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
 import com.tang.intellij.lua.comment.psi.LuaDocElementType
+import com.tang.intellij.lua.comment.psi.LuaDocTokenType
 //import com.tang.intellij.lua.comment.psi.LuaDocElementType
 import com.tang.intellij.lua.comment.psi.LuaDocTypes
 import com.tang.intellij.lua.comment.psi.impl.LuaCommentImpl
@@ -217,9 +218,9 @@ fun createDocType(string: String): IElementType {
         "TABLE_DEF" -> LuaElementType.DOC_TABLE_DEF
         "TABLE_FIELD" -> LuaElementType.DOC_TABLE_FIELD_DEF
         "TAG_ALIAS" -> LuaElementType.DOC_ALIAS
-        else -> if ("TAG_TYPE" == string) LuaElementType.TYPE_DEF else LuaElementType(string)
+        "TAG_TYPE" -> LuaElementType.TYPE_DEF
+        else -> LuaDocElementType(string)
     }
-
 }
 
 enum class LuaLanguageLevel(val version: Int) {

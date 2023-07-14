@@ -27,9 +27,6 @@ import com.tang.intellij.lua.comment.psi.LuaDocPsiElement
  */
 class LuaHighlightErrorFilter : HighlightErrorFilter() {
     override fun shouldHighlightErrorElement(psiErrorElement: PsiErrorElement): Boolean {
-//        val parent = psiErrorElement.parent
-//        if (parent is LuaDocPsiElement)
-//            return LuaSettings.instance.isStrictDoc
-        return true
+        return false
     }
 }

@@ -19,7 +19,7 @@ data class BuildData(
         val targetCompatibilityLevel: JavaVersion = JavaVersion.VERSION_17,
         // https://github.com/JetBrains/gradle-intellij-plugin/issues/403#issuecomment-542890849
         val instrumentCodeCompilerVersion: String = ideaSDKVersion,
-        val type: String = "IC"
+        val type: String = "IU"
 )
 
 val buildDataList = listOf(
@@ -28,12 +28,11 @@ val buildDataList = listOf(
                 ideaSDKVersion = "LATEST-EAP-SNAPSHOT",
                 sinceBuild = "232",
                 untilBuild = "232.*",
-                type = "IU"
         )
 )
 
 group = "com.cppcxy"
-val sumnekoVersion = "3.6.22"
+val sumnekoVersion = "3.6.23"
 
 val sumnekoProjectUrl = "https://github.com/LuaLS/lua-language-server"
 
@@ -65,7 +64,7 @@ task("download", type = Download::class) {
 
 task("install", type = Copy::class) {
     dependsOn("download")
-    from(zipTree("${sumnekoZip}")) {
+    from(zipTree(sumnekoZip)) {
         into("server")
     }
     destinationDir = file("src/main/resources")
@@ -87,10 +86,14 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    implementation("com.google.code.gson:gson:2.8.9")
+}
+
 sourceSets {
     main {
         java.srcDirs("gen")
-        resources.srcDir("src/main/resources")
+        resources.srcDir("resources")
     }
 }
 

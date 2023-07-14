@@ -2,6 +2,8 @@ package com.cppcxy.ide.lsp
 
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.extensions.PluginId
+import com.intellij.openapi.project.Project
+import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.util.SystemInfoRt
 
 object SumnekoAdaptor {
@@ -18,4 +20,8 @@ object SumnekoAdaptor {
         }
 
     val luaLanguageServer: String = "$pluginSource/server/bin/$exe"
+
+    private val project: Project
+        get() = ProjectManager.getInstance().openProjects.first()
+
 }

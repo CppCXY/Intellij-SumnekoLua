@@ -31,6 +31,7 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
         return GeneralCommandLine().apply {
             withCharset(Charsets.UTF_8)
             withExePath(SumnekoAdaptor.luaLanguageServer)
+            addParameter("--rpglog")
         }
     }
 

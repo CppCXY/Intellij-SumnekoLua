@@ -8,14 +8,37 @@
     <name>SumnekoLua</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="" url="">sumneko</vendor>
+    <vendor email="" url="">CppCXY</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    Sumneko Lua Intellij port
-    made by CppCXY
+    <strong>SumnekoLua plugin for Intellij.</strong>
+    <br>
+    <strong>the Lua language server provides various language features for Lua to make development easier and faster.
+     With around half a million installs on Visual Studio Code, it is the most popular extension for Lua language support.</strong>
+    <br>
+    <strong>Features:</strong>
+    <ul>
+        <li> ⚙️ Supports <strong>Lua 5.4</strong>, <strong>Lua 5.3</strong>, <strong>Lua 5.2</strong>, <strong>Lua 5.1</strong>, and <strong>LuaJIT</strong> </li>
+        <li> 📄 Over 20 supported <a href="https://github.com/LuaLS/lua-language-server/wiki/Annotations">annotations</a> for documenting your code </li>
+        <li> ↪ Go to definition </li>
+        <li> 🦺 Dynamic <a href="https://github.com/LuaLS/lua-language-server/wiki/Type-Checking">type checking</a> </li>
+        <li> 🔍 Find references </li>
+        <li> ⚠️ <a href="https://github.com/LuaLS/lua-language-server/wiki/Diagnostics"> Diagnostics/Warnings </a></li>
+        <li> 🕵️ <a href="https://github.com/LuaLS/lua-language-server/wiki/Syntax-Errors">Syntax checking </a> </li>
+        <li> 📝 Element renaming </li>
+        <li> 🗨️ Hover to view details on variables, functions, and more </li>
+        <li> 🖊️ Autocompletion </li>
+        <li> 📚 Support for <a href="https://github.com/LuaLS/lua-language-server/wiki/Libraries">libraries</a> </li>
+        <li> 💅 <a href="https://github.com/LuaLS/lua-language-server/wiki/Formatter">Code formatting </a> </li>
+        <li> 💬 <a href="https://github.com/LuaLS/lua-language-server/wiki/Formatter">Spell checking </a> </li>
+        <li> 🛠️ Custom <a href="https://github.com/LuaLS/lua-language-server/wiki/Plugins">plugins </a> </li>
+        <li> 📖 <a href="https://github.com/LuaLS/lua-language-server/wiki/Export-Documentation"> Documentation Generation </a> </li>
+    </ul>
+
+    <strong>for document see <a href="https://github.com/LuaLS/lua-language-server">here</a></strong>
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.
@@ -39,6 +62,8 @@
 
         <lang.parserDefinition language="Lua" implementationClass="com.tang.intellij.lua.lang.LuaParserDefinition"/>
         <lang.braceMatcher language="Lua" implementationClass="com.tang.intellij.lua.braces.LuaBraceMatcher"/>
+        <lang.quoteHandler language="Lua" implementationClass="com.tang.intellij.lua.codeInsight.editorActions.LuaQuoteHandler"/>
+        <customPasteProvider implementation="com.tang.intellij.lua.codeInsight.editorActions.StringLiteralPasteProvider"/>
 
         <!--        highlight-->
         <lang.syntaxHighlighterFactory

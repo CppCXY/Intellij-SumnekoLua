@@ -9,26 +9,26 @@ plugins {
 }
 
 data class BuildData(
-        val ideaSDKShortVersion: String,
-        // https://www.jetbrains.com/intellij-repository/releases
-        val ideaSDKVersion: String,
-        val sinceBuild: String,
-        val untilBuild: String,
-        val archiveName: String = "IntelliJ-SumnekoLua",
-        val jvmTarget: String = "17",
-        val targetCompatibilityLevel: JavaVersion = JavaVersion.VERSION_17,
-        // https://github.com/JetBrains/gradle-intellij-plugin/issues/403#issuecomment-542890849
-        val instrumentCodeCompilerVersion: String = ideaSDKVersion,
-        val type: String = "IU"
+    val ideaSDKShortVersion: String,
+    // https://www.jetbrains.com/intellij-repository/releases
+    val ideaSDKVersion: String,
+    val sinceBuild: String,
+    val untilBuild: String,
+    val archiveName: String = "IntelliJ-SumnekoLua",
+    val jvmTarget: String = "17",
+    val targetCompatibilityLevel: JavaVersion = JavaVersion.VERSION_17,
+    // https://github.com/JetBrains/gradle-intellij-plugin/issues/403#issuecomment-542890849
+    val instrumentCodeCompilerVersion: String = ideaSDKVersion,
+    val type: String = "IU"
 )
 
 val buildDataList = listOf(
-        BuildData(
-                ideaSDKShortVersion = "232",
-                ideaSDKVersion = "LATEST-EAP-SNAPSHOT",
-                sinceBuild = "232",
-                untilBuild = "232.*",
-        )
+    BuildData(
+        ideaSDKShortVersion = "232",
+        ideaSDKVersion = "LATEST-EAP-SNAPSHOT",
+        sinceBuild = "232",
+        untilBuild = "232.*",
+    )
 )
 
 group = "com.cppcxy"
@@ -44,27 +44,40 @@ val runnerNumber = System.getenv("RUNNER_NUMBER") ?: "Dev"
 
 version = "${sumnekoVersion}.${runnerNumber}-IDEA${buildVersion}"
 
-val os = OperatingSystem.current()
-val sumnekoZip = if (os.isWindows) {
-    "lua-language-server-${sumnekoVersion}-win32-x64.zip"
-} else if (os.isLinux) {
-    "lua-language-server-${sumnekoVersion}-linux-x64.tar.gz"
-} else {
-    "lua-language-server-${sumnekoVersion}-darwin-x64.tar.gz"
+task("download", type = Download::class) {
+    src(
+        arrayOf(
+            "${sumnekoProjectUrl}/releases/download/${sumnekoVersion}/lua-language-server-${sumnekoVersion}-win32-x64.zip",
+            "${sumnekoProjectUrl}/releases/download/${sumnekoVersion}/lua-language-server-${sumnekoVersion}-linux-x64.tar.gz",
+            "${sumnekoProjectUrl}/releases/download/${sumnekoVersion}/lua-language-server-${sumnekoVersion}-darwin-arm64.tar.gz",
+            "${sumnekoProjectUrl}/releases/download/${sumnekoVersion}/lua-language-server-${sumnekoVersion}-darwin-x64.tar.gz",
+        )
+    )
+    dest("temp")
 }
 
-// for future it should be lua-language-server-intellij
-task("download", type = Download::class) {
-    src(arrayOf(
-            "${sumnekoProjectUrl}/releases/download/${sumnekoVersion}/${sumnekoZip}",
-    ))
-    dest(sumnekoZip)
+task("makeServer", type = Copy::class) {
+    dependsOn("download")
+    from(zipTree("temp/lua-language-server-${sumnekoVersion}-win32-x64.zip")) {
+        into("server/win32-x64")
+    }
+    from(tarTree("temp/lua-language-server-${sumnekoVersion}-linux-x64.tar.gz")) {
+        into("server/linux-x64")
+    }
+    from(tarTree("temp/lua-language-server-${sumnekoVersion}-darwin-arm64.tar.gz")) {
+        into("server/darwin-arm64")
+    }
+    from(tarTree("temp/lua-language-server-${sumnekoVersion}-darwin-x64.tar.gz")) {
+        into("server/darwin-x64")
+    }
+
+    destinationDir = file("temp")
 }
 
 
 task("install", type = Copy::class) {
-    dependsOn("download")
-    from(zipTree(sumnekoZip)) {
+    dependsOn("makeServer")
+    from("temp/server") {
         into("server")
     }
     destinationDir = file("src/main/resources")
@@ -103,7 +116,6 @@ tasks {
     }
 
     patchPluginXml {
-//        dependsOn("install")
         sinceBuild.set(buildVersionData.sinceBuild)
         untilBuild.set(buildVersionData.untilBuild)
     }
@@ -124,6 +136,10 @@ tasks {
 
     buildPlugin {
         dependsOn("install")
+    }
+    // fix by https://youtrack.jetbrains.com/issue/IDEA-325747/IDE-always-actively-disables-LSP-plugins-if-I-ask-the-plugin-to-return-localized-diagnostic-messages.
+    runIde {
+        autoReloadPlugins.set(false)
     }
 
     prepareSandbox {

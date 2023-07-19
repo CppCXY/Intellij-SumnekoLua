@@ -5,10 +5,7 @@ package com.cppcxy.ide.lsp
 import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.platform.lsp.api.Lsp4jClient
-import com.intellij.platform.lsp.api.LspServer
-import com.intellij.platform.lsp.api.LspServerNotificationsHandler
-import com.intellij.platform.lsp.api.ProjectWideLspServerDescriptor
+import com.intellij.platform.lsp.api.*
 import com.intellij.platform.lsp.api.customization.LspCodeActionsSupport
 import com.intellij.platform.lsp.api.customization.LspCommandsSupport
 import com.intellij.platform.lsp.api.customization.LspCompletionSupport
@@ -19,7 +16,9 @@ import org.eclipse.lsp4j.Command
 import org.eclipse.lsp4j.CompletionItem
 import org.eclipse.lsp4j.CompletionItemKind
 import org.eclipse.lsp4j.InitializeParams
+import org.eclipse.lsp4j.services.LanguageServer
 import javax.swing.Icon
+import java.util.Locale
 
 
 class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescriptor(project, "SumnekoLua") {
@@ -28,10 +27,14 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
     }
 
     override fun createCommandLine(): GeneralCommandLine {
+        val locale = Locale.getDefault()
+        val languageCode = locale.language.lowercase()
+        val countryCode = locale.country.lowercase()
         return GeneralCommandLine().apply {
             withCharset(Charsets.UTF_8)
             withExePath(SumnekoAdaptor.luaLanguageServer)
-            addParameter("--rpglog")
+            addParameter("--locale=${languageCode}-${countryCode}")
+//            addParameter("--rpclog")
         }
     }
 
@@ -46,6 +49,8 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
                 CompletionItemKind.Class -> LuaIcons.CLASS
                 CompletionItemKind.Field -> LuaIcons.CLASS_FIELD
                 CompletionItemKind.File -> LuaIcons.FILE
+                CompletionItemKind.Enum -> LuaIcons.ENUM
+                CompletionItemKind.Snippet -> LuaIcons.SNIPPET
                 else -> {
                     super.getIcon(item)
                 }
@@ -59,4 +64,16 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
             super.executeCommand(server, contextFile, command)
         }
     }
+
+//    override fun createLsp4jClient(handler: LspServerNotificationsHandler): Lsp4jClient {
+//        return super.createLsp4jClient(handler)
+//    }
+//
+//
+//    override val lsp4jServerClass: Class<out LanguageServer>
+//        get() = super.lsp4jServerClass
 }
+
+
+
+

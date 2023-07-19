@@ -13,13 +13,19 @@ object SumnekoAdaptor {
     private val exe: String
         get() {
             return if (SystemInfoRt.isWindows) {
-                "lua-language-server.exe"
+                "win32-x64/bin/lua-language-server.exe"
+            } else if (SystemInfoRt.isMac) {
+                if (System.getProperty("os.arch") == "arm64") {
+                    "darwin-arm64/bin/lua-language-server"
+                } else {
+                    "darwin-x64/bin/lua-language-server"
+                }
             } else {
-                "lua-language-server"
+                "linux-x64/bin/lua-language-server"
             }
         }
 
-    val luaLanguageServer: String = "$pluginSource/server/bin/$exe"
+    val luaLanguageServer: String = "$pluginSource/server/$exe"
 
     private val project: Project
         get() = ProjectManager.getInstance().openProjects.first()

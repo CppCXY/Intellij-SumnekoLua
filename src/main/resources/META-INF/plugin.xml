@@ -14,31 +14,129 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-    <strong>SumnekoLua plugin for Intellij.</strong>
-    <br>
-    <strong>the Lua language server provides various language features for Lua to make development easier and faster.
-     With around half a million installs on Visual Studio Code, it is the most popular extension for Lua language support.</strong>
-    <br>
-    <strong>Features:</strong>
+    Support for Lua programming language.<br>
+
+    <h1>lua-language-server</h1>
+
+    <p>
+        <img src="https://vsmarketplacebadges.dev/installs-short/sumneko.lua.png" alt="installs" />
+        <img src="https://vsmarketplacebadges.dev/downloads-short/sumneko.lua.png" alt="downloads" />
+    </p>
+
+    <p><strong><em>Lua development just got a whole lot better</em></strong> 🧠</p>
+
+    <p>The Lua language server provides various language features for Lua to make development easier and faster. With around half a million installs on Visual Studio Code, it is the most popular extension for Lua language support.</p>
+
+    <h2>Features</h2>
+
     <ul>
-        <li> ⚙️ Supports <strong>Lua 5.4</strong>, <strong>Lua 5.3</strong>, <strong>Lua 5.2</strong>, <strong>Lua 5.1</strong>, and <strong>LuaJIT</strong> </li>
-        <li> 📄 Over 20 supported <a href="https://github.com/LuaLS/lua-language-server/wiki/Annotations">annotations</a> for documenting your code </li>
-        <li> ↪ Go to definition </li>
-        <li> 🦺 Dynamic <a href="https://github.com/LuaLS/lua-language-server/wiki/Type-Checking">type checking</a> </li>
-        <li> 🔍 Find references </li>
-        <li> ⚠️ <a href="https://github.com/LuaLS/lua-language-server/wiki/Diagnostics"> Diagnostics/Warnings </a></li>
-        <li> 🕵️ <a href="https://github.com/LuaLS/lua-language-server/wiki/Syntax-Errors">Syntax checking </a> </li>
-        <li> 📝 Element renaming </li>
-        <li> 🗨️ Hover to view details on variables, functions, and more </li>
-        <li> 🖊️ Autocompletion </li>
-        <li> 📚 Support for <a href="https://github.com/LuaLS/lua-language-server/wiki/Libraries">libraries</a> </li>
-        <li> 💅 <a href="https://github.com/LuaLS/lua-language-server/wiki/Formatter">Code formatting </a> </li>
-        <li> 💬 <a href="https://github.com/LuaLS/lua-language-server/wiki/Formatter">Spell checking </a> </li>
-        <li> 🛠️ Custom <a href="https://github.com/LuaLS/lua-language-server/wiki/Plugins">plugins </a> </li>
-        <li> 📖 <a href="https://github.com/LuaLS/lua-language-server/wiki/Export-Documentation"> Documentation Generation </a> </li>
+    <li>⚙️ Supports <code>Lua 5.4</code>, <code>Lua 5.3</code>, <code>Lua 5.2</code>, <code>Lua 5.1</code>, and <code>LuaJIT</code></li>
+    <li>📄 Over 20 supported <a href="https://github.com/LuaLS/lua-language-server/wiki/Annotations">annotations</a> for documenting your code</li>
+    <li>↪ Go to definition</li>
+    <li>🦺 Dynamic <a href="https://github.com/LuaLS/lua-language-server/wiki/Type-Checking">type checking</a></li>
+    <li>🔍 Find references</li>
+    <li>⚠️ <a href="https://github.com/LuaLS/lua-language-server/wiki/Diagnostics">Diagnostics/Warnings</a></li>
+    <li>🕵️ <a href="https://github.com/LuaLS/lua-language-server/wiki/Syntax-Errors">Syntax checking</a></li>
+    <li>📝 Element renaming</li>
+    <li>🗨️ Hover to view details on variables, functions, and more</li>
+    <li>🖊️ Autocompletion</li>
+    <li>📚 Support for <a href="https://github.com/LuaLS/lua-language-server/wiki/Libraries">libraries</a></li>
+    <li>💅 <a href="https://github.com/LuaLS/lua-language-server/wiki/Formatter">Code formatting</a></li>
+    <li>💬 <a href="https://github.com/LuaLS/lua-language-server/wiki/Formatter">Spell checking</a></li>
+    <li>🛠️ Custom <a href="https://github.com/LuaLS/lua-language-server/wiki/Plugins">plugins</a></li>
+    <li>📖 <a href="https://github.com/LuaLS/lua-language-server/wiki/Export-Documentation">Documentation Generation</a></li>
     </ul>
 
-    <strong>for document see <a href="https://github.com/LuaLS/lua-language-server">here</a></strong>
+    <h2>Install</h2>
+
+    <p>The language server can be installed for use in Visual Studio Code, NeoVim, and any <a href="https://microsoft.github.io/language-server-protocol/implementors/tools/">other clients</a> that support the <a href="https://microsoft.github.io/language-server-protocol/">Language Server Protocol</a>. The language server can be configured using a <a href="https://github.com/LuaLS/lua-language-server/wiki/Configuration-File">configuration file</a>. For a more detailed intro, check out the <a href="https://github.com/LuaLS/lua-language-server/wiki/Getting-Started">getting started page in the wiki</a>.</p>
+
+    <h3>Visual Studio Code</h3>
+
+    <p><a href="https://marketplace.visualstudio.com/items?itemName=sumneko.lua">Install in VS Code</a></p>
+
+    <p>The language server and Visual Studio Code client can be installed from <a href="https://marketplace.visualstudio.com/items?itemName=sumneko.lua">the VS Code Marketplace</a>.</p>
+
+    <h3>NeoVim</h3>
+
+    <p><a href="https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls">Install for NeoVim</a></p>
+
+    <p>View the installation instructions for NeoVim in the <a href="https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls">nvim-lspconfig repo</a>.</p>
+
+    <p>For a guide to getting started from scratch using Mason, read <a href="https://dev.to/vonheikemen/getting-started-with-neovims-native-lsp-client-in-the-year-of-2022-the-easy-way-bp3">Heiker's guide</a>.</p>
+
+    <h3>Command Line</h3>
+
+    <p><a href="https://github.com/LuaLS/lua-language-server/wiki/Getting-Started#command-line">Install for command line</a></p>
+
+    <p>Check the <a href="https://github.com/LuaLS/lua-language-server/wiki/Getting-Started#command-line">wiki for a guide</a> to install the language server for use on the command line. This allows the language server to be used with <a href="https://microsoft.github.io/language-server-protocol/implementors/tools/">other clients</a> that follow the <a href="https://microsoft.github.io/language-server-protocol/overviews/lsp/overview/">language server protocol</a>.</p>
+
+    <h3>Community Install Methods</h3>
+
+    <p>The install methods below are maintained by community members.</p>
+
+    <p><a href="https://github.com/bellini666/asdf-lua-language-server">asdf plugin</a></p>
+
+    <h2>Links</h2>
+
+    <ul>
+    <li><a href="https://github.com/LuaLS/lua-language-server/blob/master/changelog.md">Changelog</a></li>
+    <li><a href="https://github.com/LuaLS/lua-language-server/wiki">Wiki</a></li>
+    <li><a href="https://github.com/LuaLS/lua-language-server/wiki/FAQ">FAQ</a></li>
+    <li><a href="https://github.com/LuaLS/lua-language-server/issues">Report an issue</a></li>
+    <li><a href="https://github.com/LuaLS/lua-language-server/issues">Suggest a feature</a></li>
+    <li><a href="https://github.com/LuaLS/lua-language-server/discussions">Discuss</a></li>
+    </ul>
+
+    <blockquote>
+      <p>If you find any mistakes, please <a href="https://github.com/LuaLS/lua-language-server/issues">report it</a> or open a <a href="https://github.com/LuaLS/lua-language-server/pulls">pull request</a> if you have a fix of your own ❤️</p>
+
+      <p>如果你发现了任何错误，请<a href="https://github.com/LuaLS/lua-language-server/issues">告诉我</a>或使用<a href="https://github.com/LuaLS/lua-language-server/pulls">Pull Requests</a>来直接修复。❤️</p>
+    </blockquote>
+
+    <h2>Available Languages</h2>
+
+    <ul>
+    <li><code>en-us</code> 🇺🇸</li>
+    <li><code>zh-cn</code> 🇨🇳</li>
+    <li><code>zh-tw</code> 🇹🇼</li>
+    <li><code>pt-br</code> 🇧🇷</li>
+    </ul>
+
+    <blockquote>
+      <p><strong>Note</strong>
+      All translations are provided and collaborated on by the community. If you find an inappropriate or harmful translation, <a href="https://github.com/LuaLS/lua-language-server/issues">please report it immediately</a>.</p>
+    </blockquote>
+
+    <p>Are you able to <a href="https://github.com/LuaLS/lua-language-server/wiki/Translations">provide a translation</a>? It would be greatly appreciated!</p>
+
+    <p>Thank you to <a href="https://github.com/LuaLS/lua-language-server/commits/master/locale">all contributors of translations</a>!</p>
+
+    <h2>Privacy</h2>
+
+    <p>The language server had <strong>opt-in</strong> telemetry that collected usage data and sent it to the development team to help improve the extension. Read our <a href="https://github.com/LuaLS/lua-language-server/wiki/Home#privacy">privacy policy</a> to learn more. Telemetry was removed in <code>v3.6.5</code> and is no longer part of the language server.</p>
+
+    <h2>Credit</h2>
+
+    <p>Software that the language server (or the development of it) uses:</p>
+
+    <ul>
+    <li><a href="https://github.com/actboy168/bee.lua">bee.lua</a></li>
+    <li><a href="https://github.com/actboy168/luamake">luamake</a></li>
+    <li><a href="https://github.com/sqmedeiros/lpeglabel">LPegLabel</a></li>
+    <li><a href="https://github.com/LuaLS/LuaParser">LuaParser</a></li>
+    <li><a href="https://github.com/NickeManarin/ScreenToGif">ScreenToGif</a></li>
+    <li><a href="https://github.com/microsoft/vscode-languageserver-node">vscode-languageclient</a></li>
+    <li><a href="https://github.com/textmate/lua.tmbundle">lua.tmbundle</a></li>
+    <li><a href="https://emmylua.github.io">EmmyLua</a></li>
+    <li><a href="https://github.com/LuaLS/lua-glob">lua-glob</a></li>
+    <li><a href="https://github.com/LuaLS/utility">utility</a></li>
+    <li><a href="https://github.com/actboy168/vscode-lua-doc">vscode-lua-doc</a></li>
+    <li><a href="https://github.com/actboy168/json.lua">json.lua</a></li>
+    <li><a href="https://github.com/CppCXY/EmmyLuaCodeStyle">EmmyLuaCodeStyle</a></li>
+    <li><a href="https://github.com/kikito/inspect.lua">inspect.lua</a></li>
+    </ul>
+
   ]]></description>
 
     <!-- Product and plugin compatibility requirements.

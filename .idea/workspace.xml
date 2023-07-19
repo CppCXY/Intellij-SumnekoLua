@@ -38,11 +38,20 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Kotlin File" />
+        <option value="Class" />
         <option value="Kotlin Class" />
       </list>
     </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/api/customization/LspIntentionAction.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/api/requests/LspRequest.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/api/requests/LspRequestExecutor.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/impl/LspBundle.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/impl/connector/Lsp4jServerConnector.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/util/Lsp4jUtil.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/util/Lsp4jUtilKt.class" root0="SKIP_INSPECTION" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -60,26 +69,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/zc/Desktop/github/Intellij-SumnekoLua/src/main/resources/server",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zc\Desktop\github\Intellij-SumnekoLua\src\main\resources\server" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\zc\Desktop\github\Intellij-SumnekoLua\" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.tang.intellij.lua.codeInsight" />
       <recent name="com.cppcxy.ide.lsp" />
       <recent name="com.tang.intellij.lua.editor.formatter" />
       <recent name="com.tang.intellij.lua.lang" />
       <recent name="com.tang.intellij.lua.document" />
-      <recent name="com.cppcxy.intellij.lua.editor.formatter" />
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Run Plugin">
@@ -122,12 +135,19 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.yml" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <breakpoint enabled="true" type="java-exception">
           <properties class="com.intellij.diagnostic.PluginException" package="com.intellij.diagnostic" />
           <option name="timeStamp" value="2" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="org.gradle.api.tasks.TaskExecutionException" package="org.gradle.api.tasks" />
+          <option name="timeStamp" value="65" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIC/2021.3/c6072b37d36875b0d1a5f2c5deb4092b16dbbc68/ideaIC-2021.3-sources.jar!/com/intellij/lang/documentation/DocumentationProvider.java</url>

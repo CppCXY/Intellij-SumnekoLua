@@ -35,6 +35,8 @@ object LuaIcons {
     val Alias = AllIcons.Nodes.AbstractClass
     val CLASS_FIELD = AllIcons.Nodes.Field
     val CLASS_METHOD = AllIcons.Nodes.Method
+    val ENUM = AllIcons.Nodes.Enum
+    val SNIPPET = AllIcons.Nodes.Variable
     val CLASS_METHOD_OVERRIDING: Icon = RowIcon(AllIcons.Nodes.Method, AllIcons.Gutter.OverridingMethod)
     val GLOBAL_FUNCTION: Icon = LayeredIcon(AllIcons.Nodes.Function, AllIcons.Nodes.StaticMark)
     val GLOBAL_VAR: Icon = LayeredIcon(AllIcons.Nodes.Variable, AllIcons.Nodes.StaticMark)

@@ -18,11 +18,6 @@
 
     <h1>lua-language-server</h1>
 
-    <p>
-        <img src="https://vsmarketplacebadges.dev/installs-short/sumneko.lua.png" alt="installs" />
-        <img src="https://vsmarketplacebadges.dev/downloads-short/sumneko.lua.png" alt="downloads" />
-    </p>
-
     <p><strong><em>Lua development just got a whole lot better</em></strong> 🧠</p>
 
     <p>The Lua language server provides various language features for Lua to make development easier and faster. With around half a million installs on Visual Studio Code, it is the most popular extension for Lua language support.</p>

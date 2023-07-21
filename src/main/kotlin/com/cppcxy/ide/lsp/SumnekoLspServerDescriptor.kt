@@ -34,7 +34,6 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
             withCharset(Charsets.UTF_8)
             withExePath(SumnekoAdaptor.luaLanguageServer)
             addParameter("--locale=${languageCode}-${countryCode}")
-//            addParameter("--rpclog")
         }
     }
 

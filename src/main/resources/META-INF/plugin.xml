@@ -171,6 +171,17 @@
         <readWriteAccessDetector implementation="com.tang.intellij.lua.codeInsight.LuaReadWriteAccessDetector"/>
         <platform.lsp.serverSupportProvider implementation="com.cppcxy.ide.lsp.SumnekoLspServerSupportProvider"/>
 
+        <!-- file template provider -->
+        <fileTemplateGroup implementation="com.tang.intellij.lua.actions.LuaFileTemplateProvider"/>
+        <!--CreateFromTemplate-->
+        <createFromTemplateHandler implementation="com.tang.intellij.lua.actions.LuaCreateFromTemplateHandler"/>
         <!-- for displaying the statusbar icon -->
     </extensions>
+    <actions>
+        <action class="com.tang.intellij.lua.actions.CreateLuaFileAction"
+                text="Lua File"
+                id="lua.newFile">
+            <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFromTemplate"/>
+        </action>
+    </actions>
 </idea-plugin>

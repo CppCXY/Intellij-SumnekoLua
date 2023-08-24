@@ -27,6 +27,10 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
     }
 
     override fun createCommandLine(): GeneralCommandLine {
+        if (!SumnekoAdaptor.canExecute) {
+            SumnekoAdaptor.addExecutePermission()
+        }
+
         val locale = Locale.getDefault()
         val languageCode = locale.language.lowercase()
         val countryCode = locale.country.lowercase()
@@ -65,7 +69,8 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
     }
 
 //    override fun createLsp4jClient(handler: LspServerNotificationsHandler): Lsp4jClient {
-//        return super.createLsp4jClient(handler)
+//        val client = super.createLsp4jClient(handler)
+//        return client
 //    }
 //
 //

@@ -32,7 +32,7 @@ val buildDataList = listOf(
 )
 
 group = "com.cppcxy"
-val sumnekoVersion = "3.6.23"
+val sumnekoVersion = "3.6.25"
 
 val sumnekoProjectUrl = "https://github.com/LuaLS/lua-language-server"
 

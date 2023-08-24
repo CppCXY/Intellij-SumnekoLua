@@ -151,12 +151,15 @@
 
         <!--        folding-->
         <lang.foldingBuilder language="Lua" implementationClass="com.tang.intellij.lua.folding.LuaFoldingBuilder"/>
-        <lang.foldingBuilder language="Lua" implementationClass="com.tang.intellij.lua.folding.LuaRegionFoldingBuilder"/>
+        <lang.foldingBuilder language="Lua"
+                             implementationClass="com.tang.intellij.lua.folding.LuaRegionFoldingBuilder"/>
 
         <lang.parserDefinition language="Lua" implementationClass="com.tang.intellij.lua.lang.LuaParserDefinition"/>
         <lang.braceMatcher language="Lua" implementationClass="com.tang.intellij.lua.braces.LuaBraceMatcher"/>
-        <lang.quoteHandler language="Lua" implementationClass="com.tang.intellij.lua.codeInsight.editorActions.LuaQuoteHandler"/>
-        <customPasteProvider implementation="com.tang.intellij.lua.codeInsight.editorActions.StringLiteralPasteProvider"/>
+        <lang.quoteHandler language="Lua"
+                           implementationClass="com.tang.intellij.lua.codeInsight.editorActions.LuaQuoteHandler"/>
+        <customPasteProvider
+                implementation="com.tang.intellij.lua.codeInsight.editorActions.StringLiteralPasteProvider"/>
 
         <!--        highlight-->
         <lang.syntaxHighlighterFactory
@@ -176,6 +179,17 @@
         <!--CreateFromTemplate-->
         <createFromTemplateHandler implementation="com.tang.intellij.lua.actions.LuaCreateFromTemplateHandler"/>
         <!-- for displaying the statusbar icon -->
+
+        <!-- for settings-->
+        <applicationService
+                serviceImplementation="com.cppcxy.ide.setting.SumnekoSettings"/>
+        <applicationConfigurable
+                groupId="language"
+                instance="com.cppcxy.ide.setting.SumnekoSettingsPanel"
+                displayName="SumnekoLua Settings"
+                id="SumnekoLua.Settings"
+        >
+        </applicationConfigurable>
     </extensions>
     <actions>
         <action class="com.tang.intellij.lua.actions.CreateLuaFileAction"

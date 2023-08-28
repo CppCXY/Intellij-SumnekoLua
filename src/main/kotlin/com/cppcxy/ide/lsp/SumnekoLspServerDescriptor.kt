@@ -31,13 +31,10 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
             SumnekoAdaptor.addExecutePermission()
         }
 
-        val locale = Locale.getDefault()
-        val languageCode = locale.language.lowercase()
-        val countryCode = locale.country.lowercase()
         return GeneralCommandLine().apply {
             withCharset(Charsets.UTF_8)
             withExePath(SumnekoAdaptor.luaLanguageServer)
-            addParameter("--locale=${languageCode}-${countryCode}")
+            addParameter("--locale=${SumnekoAdaptor.locale}")
         }
     }
 

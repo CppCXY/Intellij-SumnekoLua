@@ -1,11 +1,13 @@
 package com.cppcxy.ide.lsp
 
+import com.cppcxy.ide.setting.SumnekoSettings
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.util.SystemInfoRt
 import java.io.File
+import java.util.*
 
 object SumnekoAdaptor {
     private val pluginSource: String?
@@ -26,7 +28,24 @@ object SumnekoAdaptor {
             }
         }
 
-    val luaLanguageServer: String = "$pluginSource/server/$exe"
+    val luaLanguageServer: String
+        get() {
+            if (SumnekoSettings.getInstance().location.isNotEmpty()) {
+                return SumnekoSettings.getInstance().location
+            }
+            return "$pluginSource/server/$exe"
+        }
+
+    val locale: String
+        get() {
+            if (SumnekoSettings.getInstance().locale.toString().isNotEmpty()) {
+                return SumnekoSettings.getInstance().locale.toString()
+            }
+            val locale = Locale.getDefault()
+            val languageCode = locale.language.lowercase()
+            val countryCode = locale.country.lowercase()
+            return "${languageCode}-${countryCode}"
+        }
 
     val canExecute: Boolean
         get() {

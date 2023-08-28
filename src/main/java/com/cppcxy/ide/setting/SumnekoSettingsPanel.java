@@ -53,7 +53,7 @@ public class SumnekoSettingsPanel implements SearchableConfigurable, Configurabl
     }
 
     @Override
-    public void apply() throws ConfigurationException {
+    public void apply() {
           settings.setLocale((SumnekoSupportLocale) locale.getSelectedItem());
           settings.setLocation(location.getText());
     }

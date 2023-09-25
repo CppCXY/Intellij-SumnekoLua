@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6ea52885-23ce-41b2-b06e-66a953a5c5ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cppcxy/ide/setting/SumnekoSettingsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cppcxy/ide/setting/SumnekoSettingsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoAdaptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoAdaptor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerDescriptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerDescriptor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

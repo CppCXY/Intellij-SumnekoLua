@@ -24,6 +24,12 @@ data class BuildData(
 
 val buildDataList = listOf(
     BuildData(
+        ideaSDKShortVersion = "233",
+        ideaSDKVersion = "LATEST-EAP-SNAPSHOT",
+        sinceBuild = "233",
+        untilBuild = "233.*",
+    ),
+    BuildData(
         ideaSDKShortVersion = "232",
         ideaSDKVersion = "LATEST-EAP-SNAPSHOT",
         sinceBuild = "232",
@@ -32,7 +38,7 @@ val buildDataList = listOf(
 )
 
 group = "com.cppcxy"
-val sumnekoVersion = "3.6.25"
+val sumnekoVersion = "3.7.0"
 
 val sumnekoProjectUrl = "https://github.com/LuaLS/lua-language-server"
 
@@ -99,9 +105,9 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    implementation("com.google.code.gson:gson:2.8.9")
-}
+//dependencies {
+//    implementation("com.google.code.gson:gson:2.8.9")
+//}
 
 sourceSets {
     main {

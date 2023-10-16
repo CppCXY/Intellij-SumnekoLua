@@ -82,7 +82,7 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
             ideCanFormatThisFileItself: Boolean,
             serverExplicitlyWantsToFormatThisFile: Boolean
         ): Boolean {
-            return file.fileType !is LuaLanguage
+            return file.fileType is LuaFileType
         }
     }
 }

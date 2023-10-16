@@ -38,7 +38,7 @@ object SumnekoAdaptor {
 
     val locale: String
         get() {
-            if (SumnekoSettings.getInstance().locale.toString().isNotEmpty()) {
+            if (SumnekoSettings.getInstance().locale.toString() != "auto") {
                 return SumnekoSettings.getInstance().locale.toString()
             }
             val locale = Locale.getDefault()

@@ -9,9 +9,11 @@ import com.intellij.platform.lsp.api.*
 import com.intellij.platform.lsp.api.customization.LspCodeActionsSupport
 import com.intellij.platform.lsp.api.customization.LspCommandsSupport
 import com.intellij.platform.lsp.api.customization.LspCompletionSupport
+import com.intellij.platform.lsp.api.customization.LspFormattingSupport
 import com.intellij.platform.lsp.api.requests.LspClientNotification
 import com.tang.intellij.lua.lang.LuaFileType
 import com.tang.intellij.lua.lang.LuaIcons
+import com.tang.intellij.lua.lang.LuaLanguage
 import org.eclipse.lsp4j.Command
 import org.eclipse.lsp4j.CompletionItem
 import org.eclipse.lsp4j.CompletionItemKind
@@ -73,6 +75,16 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
 //
 //    override val lsp4jServerClass: Class<out LanguageServer>
 //        get() = super.lsp4jServerClass
+
+    override val lspFormattingSupport = object : LspFormattingSupport() {
+        override fun shouldFormatThisFileExclusivelyByServer(
+            file: VirtualFile,
+            ideCanFormatThisFileItself: Boolean,
+            serverExplicitlyWantsToFormatThisFile: Boolean
+        ): Boolean {
+            return file.fileType !is LuaLanguage
+        }
+    }
 }
 
 

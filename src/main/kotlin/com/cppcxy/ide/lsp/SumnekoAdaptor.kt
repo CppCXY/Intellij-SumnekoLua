@@ -1,6 +1,7 @@
 package com.cppcxy.ide.lsp
 
 import com.cppcxy.ide.setting.SumnekoSettings
+import com.cppcxy.ide.setting.SumnekoSupportLocale
 import com.intellij.ide.plugins.PluginManagerCore
 import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
@@ -38,7 +39,7 @@ object SumnekoAdaptor {
 
     val locale: String
         get() {
-            if (SumnekoSettings.getInstance().locale.toString() != "auto") {
+            if (SumnekoSettings.getInstance().locale != SumnekoSupportLocale.auto) {
                 return SumnekoSettings.getInstance().locale.toString()
             }
             val locale = Locale.getDefault()
@@ -56,7 +57,9 @@ object SumnekoAdaptor {
     fun addExecutePermission() {
         val file = File(luaLanguageServer)
         if (file.exists() && !file.canExecute()) {
-            file.setExecutable(true)
+            val runtime = Runtime.getRuntime()
+            val process = runtime.exec(arrayOf("chmod", "+x", file.absolutePath))
+            process.waitFor()
         }
     }
 }

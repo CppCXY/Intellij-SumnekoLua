@@ -58,7 +58,7 @@ object SumnekoAdaptor {
         val file = File(luaLanguageServer)
         if (file.exists() && !file.canExecute()) {
             val runtime = Runtime.getRuntime()
-            val process = runtime.exec(arrayOf("chmod", "+x", file.absolutePath))
+            val process = runtime.exec(arrayOf("chmod", "u+x", file.absolutePath))
             process.waitFor()
         }
     }

@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ea52885-23ce-41b2-b06e-66a953a5c5ae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
@@ -50,15 +51,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/api/customization/LspIntentionAction.class" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/api/requests/LspRequest.class" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/api/requests/LspRequestExecutor.class" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/impl/LspBundle.class" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/impl/connector/Lsp4jServerConnector.class" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/util/Lsp4jUtil.class" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/6e2df7d9e89db81955bdbf942b22fd1067ff30d5/ideaIU-LATEST-EAP-SNAPSHOT/lib/product.jar!/com/intellij/platform/lsp/util/Lsp4jUtilKt.class" root0="SKIP_INSPECTION" />
-  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -80,14 +72,23 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Gradle.Intellij-SumnekoLua [buildPlugin].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Intellij-SumnekoLua [setupDependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Run Plugin.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/zc/Desktop/Sumneko-Lua-3.6.23.7-IDEA232.zip&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;kotlin-gradle-user-dirs&quot;: [
+      &quot;C:\\Users\\zc\\.gradle&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -107,6 +108,16 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.Run Plugin">
+    <configuration default="true" type="lua.app" factoryName="Lua Application">
+      <option name="program" value="lua.exe" />
+      <option name="file" value="" />
+      <option name="workingDir" value="$PROJECT_DIR$/src/main/kotlin" />
+      <option name="debuggerType" value="1" />
+      <option name="params" value="" />
+      <option name="charset" value="UTF-8" />
+      <option name="showConsole" value="true" />
+      <method v="2" />
+    </configuration>
     <configuration name="Intellij-SumnekoLua [buildPlugin]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -129,21 +140,19 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="lua.app" factoryName="Lua Application">
-      <option name="program" value="lua.exe" />
-      <option name="file" value="" />
-      <option name="workingDir" value="$PROJECT_DIR$/src/main/kotlin" />
-      <option name="debuggerType" value="1" />
-      <option name="params" value="" />
-      <option name="charset" value="UTF-8" />
-      <option name="showConsole" value="true" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.Intellij-SumnekoLua [buildPlugin]" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-49964104c9db-4f3ef767" />
+        <option value="jdk-17.0.10-corretto-17.0.10-5b172459f563-b10de040" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="UnknownFeatures">

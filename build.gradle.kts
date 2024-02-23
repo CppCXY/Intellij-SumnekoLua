@@ -24,6 +24,12 @@ data class BuildData(
 
 val buildDataList = listOf(
     BuildData(
+        ideaSDKShortVersion = "241",
+        ideaSDKVersion = "LATEST-EAP-SNAPSHOT",
+        sinceBuild = "241",
+        untilBuild = "241.*",
+    ),
+    BuildData(
         ideaSDKShortVersion = "233",
         ideaSDKVersion = "LATEST-EAP-SNAPSHOT",
         sinceBuild = "233",
@@ -38,7 +44,7 @@ val buildDataList = listOf(
 )
 
 group = "com.cppcxy"
-val sumnekoVersion = "3.7.3"
+val sumnekoVersion = "3.7.4"
 
 val sumnekoProjectUrl = "https://github.com/LuaLS/lua-language-server"
 

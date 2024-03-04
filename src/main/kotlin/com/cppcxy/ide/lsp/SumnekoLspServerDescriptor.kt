@@ -6,21 +6,14 @@ import com.intellij.execution.configurations.GeneralCommandLine
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.platform.lsp.api.*
-import com.intellij.platform.lsp.api.customization.LspCodeActionsSupport
-import com.intellij.platform.lsp.api.customization.LspCommandsSupport
 import com.intellij.platform.lsp.api.customization.LspCompletionSupport
 import com.intellij.platform.lsp.api.customization.LspFormattingSupport
-import com.intellij.platform.lsp.api.requests.LspClientNotification
 import com.tang.intellij.lua.lang.LuaFileType
 import com.tang.intellij.lua.lang.LuaIcons
-import com.tang.intellij.lua.lang.LuaLanguage
-import org.eclipse.lsp4j.Command
 import org.eclipse.lsp4j.CompletionItem
 import org.eclipse.lsp4j.CompletionItemKind
 import org.eclipse.lsp4j.InitializeParams
-import org.eclipse.lsp4j.services.LanguageServer
 import javax.swing.Icon
-import java.util.Locale
 
 
 class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescriptor(project, "SumnekoLua") {
@@ -60,21 +53,6 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
 
         }
     }
-
-    override val lspCommandsSupport = object : LspCommandsSupport() {
-        override fun executeCommand(server: LspServer, contextFile: VirtualFile, command: Command) {
-            super.executeCommand(server, contextFile, command)
-        }
-    }
-
-//    override fun createLsp4jClient(handler: LspServerNotificationsHandler): Lsp4jClient {
-//        val client = super.createLsp4jClient(handler)
-//        return client
-//    }
-//
-//
-//    override val lsp4jServerClass: Class<out LanguageServer>
-//        get() = super.lsp4jServerClass
 
     override val lspFormattingSupport = object : LspFormattingSupport() {
         override fun shouldFormatThisFileExclusivelyByServer(

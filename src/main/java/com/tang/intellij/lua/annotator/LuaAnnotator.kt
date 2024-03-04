@@ -115,6 +115,34 @@ class LuaAnnotator : Annotator {
                 }
             }
         }
+
+        override fun visitCallExpr(o: LuaCallExpr) {
+            super.visitCallExpr(o)
+            val expr = o.expr
+            if (expr is LuaNameExpr) {
+                newInfoAnnotation(expr, null) {
+                    it.textAttributes(LuaHighlightingData.INSTANCE_METHOD)
+                }
+            }
+            else if(expr is LuaIndexExpr) {
+                val id = expr.id
+                if (id != null) {
+                    newInfoAnnotation(id, null) {
+                        it.textAttributes(LuaHighlightingData.INSTANCE_METHOD)
+                    }
+                }
+            }
+        }
+
+        override fun visitFuncDef(o: LuaFuncDef) {
+            super.visitFuncDef(o)
+            val id = o.id
+            if (id != null){
+                newInfoAnnotation(id, null) {
+                    it.textAttributes(LuaHighlightingData.GLOBAL_FUNCTION)
+                }
+            }
+        }
     }
 
     internal inner class LuaDocElementVisitor : LuaDocVisitor() {

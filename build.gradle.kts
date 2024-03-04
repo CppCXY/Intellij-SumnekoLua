@@ -3,9 +3,9 @@ import org.gradle.internal.os.OperatingSystem
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "1.8.21"
-    id("org.jetbrains.intellij") version "1.13.3"
-    id("de.undercouch.download").version("5.3.0")
+    id("org.jetbrains.kotlin.jvm") version "2.0.0-Beta4"
+    id("org.jetbrains.intellij") version "1.17.2"
+    id("de.undercouch.download") version "5.3.0"
 }
 
 data class BuildData(
@@ -110,10 +110,6 @@ repositories {
     maven(url = "https://www.jetbrains.com/intellij-repository/releases")
     mavenCentral()
 }
-
-//dependencies {
-//    implementation("com.google.code.gson:gson:2.8.9")
-//}
 
 sourceSets {
     main {

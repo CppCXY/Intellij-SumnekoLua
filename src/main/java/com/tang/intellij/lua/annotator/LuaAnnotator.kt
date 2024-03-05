@@ -143,6 +143,18 @@ class LuaAnnotator : Annotator {
                 }
             }
         }
+
+        override fun visitNameExpr(o: LuaNameExpr) {
+            super.visitNameExpr(o)
+            val name = o.id.text
+            if (name != null) {
+                if (name == "self") {
+                    newInfoAnnotation(o, null) {
+                        it.textAttributes(LuaHighlightingData.SELF)
+                    }
+                }
+            }
+        }
     }
 
     internal inner class LuaDocElementVisitor : LuaDocVisitor() {

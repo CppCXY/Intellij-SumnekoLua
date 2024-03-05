@@ -190,6 +190,8 @@
                 id="SumnekoLua.Settings"
         >
         </applicationConfigurable>
+
+        <statusBarWidgetFactory id="SumnekoBar" implementation="com.cppcxy.ide.editor.statusbar.StatusBarWidgetFactory"/>
     </extensions>
     <actions>
         <action class="com.tang.intellij.lua.actions.CreateLuaFileAction"

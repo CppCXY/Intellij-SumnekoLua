@@ -12,7 +12,6 @@ import com.tang.intellij.lua.lang.LuaFileType
 import com.tang.intellij.lua.lang.LuaIcons
 import org.eclipse.lsp4j.CompletionItem
 import org.eclipse.lsp4j.CompletionItemKind
-import org.eclipse.lsp4j.InitializeParams
 import javax.swing.Icon
 
 
@@ -33,8 +32,8 @@ class SumnekoLspServerDescriptor(project: Project) : ProjectWideLspServerDescrip
         }
     }
 
-    override fun createInitializeParams(): InitializeParams {
-        return super.createInitializeParams()
+    override fun createLsp4jClient(handler: LspServerNotificationsHandler): Lsp4jClient {
+        return SumnekoClient(handler, project)
     }
 
     override val lspCompletionSupport = object : LspCompletionSupport() {

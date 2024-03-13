@@ -50,7 +50,7 @@ object LuaHighlightingData {
     val OPERATORS = TextAttributesKey.createTextAttributesKey("LUA_OPERATORS", DefaultLanguageHighlighterColors.OPERATION_SIGN)
     val SEMICOLON = TextAttributesKey.createTextAttributesKey("LUA_SEMICOLON", DefaultLanguageHighlighterColors.SEMICOLON)
     val COMMA = TextAttributesKey.createTextAttributesKey("LUA_COMMA", DefaultLanguageHighlighterColors.COMMA)
-    val PRIMITIVE_TYPE = TextAttributesKey.createTextAttributesKey("LUA_PRIMITIVE_TYPE", ConsoleHighlighter.CYAN_BRIGHT)
+    val PRIMITIVE_TYPE = TextAttributesKey.createTextAttributesKey("LUA_PRIMITIVE_TYPE",  DefaultLanguageHighlighterColors.KEYWORD)
     val UP_VALUE = TextAttributesKey.createTextAttributesKey("LUA_UP_VALUE")
     val STD_API = TextAttributesKey.createTextAttributesKey("LUA_STD_API")
     val TYPE_ALIAS = TextAttributesKey.createTextAttributesKey("LUA_TYPE_ALIAS", DefaultLanguageHighlighterColors.CLASS_NAME)

@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ea52885-23ce-41b2-b06e-66a953a5c5ae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/editor/statusbar/StatusBarWidget.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/CustomLspData.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoClient.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/annotator/LuaAnnotator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/annotator/LuaAnnotator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerDescriptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerDescriptor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerSupportProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerSupportProvider.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/highlighting/LuaHighlightErrorFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/highlighting/LuaHighlightErrorFilter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/highlighting/LuaHighlightingData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/highlighting/LuaHighlightingData.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +79,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/zc/.gradle/caches/modules-2/files-2.1/com.jetbrains.intellij.idea/ideaIU/LATEST-EAP-SNAPSHOT/9c8898d3b8c283e2a6bb8748428a193461e12cb8/ideaIU-LATEST-EAP-SNAPSHOT/lib/src/src_lsp-openapi.zip&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zc/Desktop/server_gonghui_dev/gameserver/script&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -154,6 +149,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.17" />
         <option value="jdk-17.0.10-corretto-17.0.10-49964104c9db-4f3ef767" />
         <option value="jdk-17.0.10-corretto-17.0.10-5b172459f563-b10de040" />
       </set>

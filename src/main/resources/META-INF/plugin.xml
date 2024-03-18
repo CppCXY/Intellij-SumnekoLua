@@ -192,6 +192,7 @@
         </applicationConfigurable>
 
         <statusBarWidgetFactory id="SumnekoBar" implementation="com.cppcxy.ide.editor.statusbar.StatusBarWidgetFactory"/>
+        <lang.commenter language="Lua" implementationClass="com.tang.intellij.lua.comment.LuaCommenter"/>
     </extensions>
     <actions>
         <action class="com.tang.intellij.lua.actions.CreateLuaFileAction"

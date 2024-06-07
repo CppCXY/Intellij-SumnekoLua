@@ -29,6 +29,6 @@ import com.tang.intellij.lua.psi.LuaPsiElement
  */
 class LuaHighlightErrorFilter : HighlightErrorFilter() {
     override fun shouldHighlightErrorElement(psiErrorElement: PsiErrorElement): Boolean {
-        return psiErrorElement !is LuaPsiElement;
+        return psiErrorElement !is LuaPsiElement
     }
 }

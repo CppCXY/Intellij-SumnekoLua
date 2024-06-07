@@ -19,7 +19,7 @@ data class BuildData(
     val targetCompatibilityLevel: JavaVersion = JavaVersion.VERSION_17,
     // https://github.com/JetBrains/gradle-intellij-plugin/issues/403#issuecomment-542890849
     val instrumentCodeCompilerVersion: String = ideaSDKVersion,
-    val type: String = "IU"
+    val type: String = "IC"
 )
 
 val buildDataList = listOf(
@@ -27,12 +27,12 @@ val buildDataList = listOf(
         ideaSDKShortVersion = "241",
         ideaSDKVersion = "LATEST-EAP-SNAPSHOT",
         sinceBuild = "241",
-        untilBuild = "241.*",
+        untilBuild = "242.*",
     )
 )
 
 group = "com.cppcxy"
-val sumnekoVersion = "3.8.0"
+val sumnekoVersion = "3.9.2"
 
 val sumnekoProjectUrl = "https://github.com/LuaLS/lua-language-server"
 
@@ -90,8 +90,9 @@ intellij {
     pluginName.set("Sumneko-Lua")
     version.set(buildVersionData.ideaSDKVersion)
     type.set(buildVersionData.type) // Target IDE Platform
+
     sandboxDir.set("${project.buildDir}/${buildVersionData.ideaSDKShortVersion}/idea-sandbox")
-    plugins.set(listOf(/* Plugin Dependencies */))
+    plugins.set(listOf("com.redhat.devtools.lsp4ij:0.0.1"))
 }
 
 repositories {

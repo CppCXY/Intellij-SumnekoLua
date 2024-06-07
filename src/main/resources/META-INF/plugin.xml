@@ -138,7 +138,7 @@
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
 
     <depends>com.intellij.modules.platform</depends>
-    <depends>com.intellij.modules.ultimate</depends>
+    <depends>com.redhat.devtools.lsp4ij</depends>
     <idea-version since-build="223.2"/>
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
@@ -172,7 +172,7 @@
                 implementation="com.tang.intellij.lua.codeInsight.highlighting.LuaHighlightUsagesHandlerFactory"/>
 
         <readWriteAccessDetector implementation="com.tang.intellij.lua.codeInsight.LuaReadWriteAccessDetector"/>
-        <platform.lsp.serverSupportProvider implementation="com.cppcxy.ide.lsp.SumnekoLspServerSupportProvider"/>
+<!--        <platform.lsp.serverSupportProvider implementation="com.cppcxy.ide.lsp.SumnekoLspServerSupportProvider"/>-->
 
         <!-- file template provider -->
         <fileTemplateGroup implementation="com.tang.intellij.lua.actions.LuaFileTemplateProvider"/>
@@ -194,6 +194,19 @@
         <statusBarWidgetFactory id="SumnekoBar" implementation="com.cppcxy.ide.editor.statusbar.StatusBarWidgetFactory"/>
         <lang.commenter language="Lua" implementationClass="com.tang.intellij.lua.comment.LuaCommenter"/>
     </extensions>
+    <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
+        <server id="SumnekoLua"
+                name="Sumneko"
+                factoryClass="com.cppcxy.ide.lsp.LspFactory">
+            <description><![CDATA[
+                <p>Sumneko Lua</p>
+    ]]>
+            </description>
+        </server>
+        <languageMapping language="Lua"
+                         serverId="SumnekoLua"/>
+    </extensions>
+
     <actions>
         <action class="com.tang.intellij.lua.actions.CreateLuaFileAction"
                 text="Lua File"

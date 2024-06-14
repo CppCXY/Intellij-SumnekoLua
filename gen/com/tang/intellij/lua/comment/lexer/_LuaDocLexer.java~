@@ -603,7 +603,6 @@ public class _LuaDocLexer implements FlexLexer, LuaDocTypes {
     }
 
     private void beginType() {
-        yybegin(xTYPE_REF);
         _typeLevel = 0;
         _typeReq = true;
     }

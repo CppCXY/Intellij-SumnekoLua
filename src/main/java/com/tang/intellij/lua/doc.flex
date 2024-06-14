@@ -68,34 +68,35 @@ SINGLE_QUOTED_STRING='([^\\\']|\\\S|\\[\r\n])*'?    //'([^\\'\r\n]|\\[^\r\n])*'?
     .                          { yybegin(xCOMMENT_STRING); yypushback(yylength()); }
 }
 
-<xTAG, xTAG_WITH_ID, xTAG_NAME, xCOMMENT_STRING> {
+<xTAG, xTAG_WITH_ID, xTAG_NAME, xCOMMENT_STRING, xLANGUAGE> {
     {EOL}                      { yybegin(YYINITIAL);return com.intellij.psi.TokenType.WHITE_SPACE;}
     {LINE_WS}+                 { return com.intellij.psi.TokenType.WHITE_SPACE; }
 }
 
 <xTAG_NAME> {
-    "field"                    { return TAG_NAME_FIELD; }
-    "param"                    { return TAG_NAME_PARAM; }
-    "vararg"                   { return TAG_NAME_VARARG; }
-    "class"                    { return TAG_NAME_CLASS; }
-    "module"                   { return TAG_NAME_MODULE; }
-    "return"                   { return TAG_NAME_RETURN; }
-    "type"                     { return TAG_NAME_TYPE;}
-    "overload"                 { return TAG_NAME_OVERLOAD; }
-    "private"                  { return TAG_NAME_PRIVATE; }
-    "protected"                { return TAG_NAME_PROTECTED; }
-    "public"                   { return TAG_NAME_PUBLIC; }
-    "language"                 { yybegin(xLANGUAGE); return TAG_NAME_LANGUAGE; }
-    "generic"                  { return TAG_NAME_GENERIC; }
-    "see"                      { return TAG_NAME_SEE; }
-    "alias"                    { return TAG_NAME_ALIAS; }
-    "suppress"                 { return TAG_NAME_SUPPRESS; }
-    {ID}                       { return TAG_NAME; }
+    "field"                    {  yybegin(xCOMMENT_STRING); return TAG_NAME_FIELD; }
+    "param"                    {  yybegin(xCOMMENT_STRING); return TAG_NAME_PARAM; }
+    "vararg"                   {  yybegin(xCOMMENT_STRING); return TAG_NAME_VARARG; }
+    "class"                    {  yybegin(xCOMMENT_STRING); return TAG_NAME_CLASS; }
+    "module"                   {  yybegin(xCOMMENT_STRING); return TAG_NAME_MODULE; }
+    "return"                   {  yybegin(xCOMMENT_STRING); return TAG_NAME_RETURN; }
+    "type"                     {  yybegin(xCOMMENT_STRING); return TAG_NAME_TYPE;}
+    "overload"                 {  yybegin(xCOMMENT_STRING); return TAG_NAME_OVERLOAD; }
+    "private"                  {  yybegin(xCOMMENT_STRING); return TAG_NAME_PRIVATE; }
+    "protected"                {  yybegin(xCOMMENT_STRING); return TAG_NAME_PROTECTED; }
+    "public"                   {  yybegin(xCOMMENT_STRING); return TAG_NAME_PUBLIC; }
+    "language"                 {  yybegin(xLANGUAGE); return TAG_NAME_LANGUAGE; }
+    "generic"                  {  yybegin(xCOMMENT_STRING); return TAG_NAME_GENERIC; }
+    "see"                      {  yybegin(xCOMMENT_STRING); return TAG_NAME_SEE; }
+    "alias"                    {  yybegin(xCOMMENT_STRING); return TAG_NAME_ALIAS; }
+    "suppress"                 {  yybegin(xCOMMENT_STRING); return TAG_NAME_SUPPRESS; }
+    {ID}                       {  yybegin(xCOMMENT_STRING); return TAG_NAME; }
     [^]                        { return com.intellij.psi.TokenType.BAD_CHARACTER; }
 }
 
 <xLANGUAGE> {
-    {ID}                       { return ID; }
+    {ID}                       { yybegin(xCOMMENT_STRING); return ID; }
+    [^]                        { return com.intellij.psi.TokenType.BAD_CHARACTER; }
 }
 
 <xTAG> {

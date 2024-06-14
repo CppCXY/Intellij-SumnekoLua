@@ -6,8 +6,46 @@
   <component name="ChangeListManager">
     <list default="true" id="6ea52885-23ce-41b2-b06e-66a953a5c5ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/sessions/kotlin-compiler-15702467176466051415.salive" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/parser/LuaDocParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/parser/LuaDocParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocAccessModifier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocCommentString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocGenericDef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagAlias.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagDef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagField.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagGenericList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagLan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagOther.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagOverload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagParam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagReturn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagSee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagSuppress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagVararg.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTypes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocAccessModifierImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocCommentStringImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocGenericDefImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagAliasImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagClassImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagDefImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagFieldImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagGenericListImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagLanImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagOtherImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagOverloadImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagParamImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagReturnImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagSeeImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagSuppressImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagTypeImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagVarargImpl.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/doc.bnf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/doc.bnf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/doc.flex" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/doc.flex" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +213,8 @@
       <updated>1718382103193</updated>
       <workItem from="1718382105829" duration="96000" />
       <workItem from="1718382210952" duration="3113000" />
-      <workItem from="1718386145597" duration="1210000" />
+      <workItem from="1718386145597" duration="1794000" />
+      <workItem from="1718388014678" duration="1798000" />
     </task>
     <servers />
   </component>

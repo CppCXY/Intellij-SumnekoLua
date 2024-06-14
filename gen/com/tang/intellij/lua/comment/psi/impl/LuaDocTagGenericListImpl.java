@@ -27,10 +27,4 @@ public class LuaDocTagGenericListImpl extends ASTWrapperPsiElement implements Lu
     else super.accept(visitor);
   }
 
-  @Override
-  @NotNull
-  public List<LuaDocGenericDef> getGenericDefList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, LuaDocGenericDef.class);
-  }
-
 }

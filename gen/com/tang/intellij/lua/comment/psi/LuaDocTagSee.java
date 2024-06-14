@@ -7,7 +7,4 @@ import com.intellij.psi.PsiElement;
 
 public interface LuaDocTagSee extends LuaDocTag {
 
-  @Nullable
-  LuaDocCommentString getCommentString();
-
 }

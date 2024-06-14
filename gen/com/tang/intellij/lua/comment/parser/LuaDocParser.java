@@ -194,167 +194,68 @@ public class LuaDocParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ID (EXTENDS class_name_ref)?
-  public static boolean generic_def(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "generic_def")) return false;
-    if (!nextTokenIs(b, ID)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, GENERIC_DEF, null);
-    r = consumeToken(b, ID);
-    p = r; // pin = 1
-    r = r && generic_def_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // (EXTENDS class_name_ref)?
-  private static boolean generic_def_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "generic_def_1")) return false;
-    generic_def_1_0(b, l + 1);
-    return true;
-  }
-
-  // EXTENDS class_name_ref
-  private static boolean generic_def_1_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "generic_def_1_0")) return false;
+  // TAG_NAME_ALIAS
+  public static boolean tag_alias(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "tag_alias")) return false;
+    if (!nextTokenIs(b, TAG_NAME_ALIAS)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, EXTENDS, CLASS_NAME_REF);
-    exit_section_(b, m, null, r);
+    r = consumeToken(b, TAG_NAME_ALIAS);
+    exit_section_(b, m, TAG_ALIAS, r);
     return r;
   }
 
   /* ********************************************************** */
-  // TAG_NAME_ALIAS comment_string?
-  public static boolean tag_alias(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_alias")) return false;
-    if (!nextTokenIs(b, TAG_NAME_ALIAS)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_ALIAS, null);
-    r = consumeToken(b, TAG_NAME_ALIAS);
-    p = r; // pin = 1
-    r = r && tag_alias_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // comment_string?
-  private static boolean tag_alias_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_alias_1")) return false;
-    comment_string(b, l + 1);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // (TAG_NAME_CLASS|TAG_NAME_MODULE) comment_string?
+  // TAG_NAME_CLASS|TAG_NAME_MODULE
   public static boolean tag_class(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_class")) return false;
     if (!nextTokenIs(b, "<tag class>", TAG_NAME_CLASS, TAG_NAME_MODULE)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, TAG_CLASS, "<tag class>");
-    r = tag_class_0(b, l + 1);
-    r = r && tag_class_1(b, l + 1);
+    r = consumeToken(b, TAG_NAME_CLASS);
+    if (!r) r = consumeToken(b, TAG_NAME_MODULE);
     exit_section_(b, l, m, r, false, null);
     return r;
   }
 
-  // TAG_NAME_CLASS|TAG_NAME_MODULE
-  private static boolean tag_class_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_class_0")) return false;
-    boolean r;
-    r = consumeToken(b, TAG_NAME_CLASS);
-    if (!r) r = consumeToken(b, TAG_NAME_MODULE);
-    return r;
-  }
-
-  // comment_string?
-  private static boolean tag_class_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_class_1")) return false;
-    comment_string(b, l + 1);
-    return true;
-  }
-
   /* ********************************************************** */
-  // TAG_NAME_NAME comment_string?
+  // TAG_NAME_NAME
   public static boolean tag_def(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_def")) return false;
     if (!nextTokenIs(b, TAG_NAME_NAME)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_DEF, null);
-    r = consumeToken(b, TAG_NAME_NAME);
-    p = r; // pin = 1
-    r = r && tag_def_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // comment_string?
-  private static boolean tag_def_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_def_1")) return false;
-    comment_string(b, l + 1);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // TAG_NAME_FIELD comment_string?
-  public static boolean tag_field(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_field")) return false;
-    if (!nextTokenIs(b, TAG_NAME_FIELD)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_FIELD, null);
-    r = consumeToken(b, TAG_NAME_FIELD);
-    p = r; // pin = 1
-    r = r && tag_field_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // comment_string?
-  private static boolean tag_field_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_field_1")) return false;
-    comment_string(b, l + 1);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // TAG_NAME_GENERIC generic_def (',' generic_def)*
-  public static boolean tag_generic_list(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_generic_list")) return false;
-    if (!nextTokenIs(b, TAG_NAME_GENERIC)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_GENERIC_LIST, null);
-    r = consumeToken(b, TAG_NAME_GENERIC);
-    p = r; // pin = 1
-    r = r && report_error_(b, generic_def(b, l + 1));
-    r = p && tag_generic_list_2(b, l + 1) && r;
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // (',' generic_def)*
-  private static boolean tag_generic_list_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_generic_list_2")) return false;
-    while (true) {
-      int c = current_position_(b);
-      if (!tag_generic_list_2_0(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "tag_generic_list_2", c)) break;
-    }
-    return true;
-  }
-
-  // ',' generic_def
-  private static boolean tag_generic_list_2_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_generic_list_2_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, COMMA);
-    r = r && generic_def(b, l + 1);
-    exit_section_(b, m, null, r);
+    r = consumeToken(b, TAG_NAME_NAME);
+    exit_section_(b, m, TAG_DEF, r);
     return r;
   }
 
   /* ********************************************************** */
-  // TAG_NAME_LANGUAGE ID comment_string?
+  // TAG_NAME_FIELD
+  public static boolean tag_field(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "tag_field")) return false;
+    if (!nextTokenIs(b, TAG_NAME_FIELD)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, TAG_NAME_FIELD);
+    exit_section_(b, m, TAG_FIELD, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // TAG_NAME_GENERIC
+  public static boolean tag_generic_list(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "tag_generic_list")) return false;
+    if (!nextTokenIs(b, TAG_NAME_GENERIC)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, TAG_NAME_GENERIC);
+    exit_section_(b, m, TAG_GENERIC_LIST, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // TAG_NAME_LANGUAGE ID
   public static boolean tag_lan(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_lan")) return false;
     if (!nextTokenIs(b, TAG_NAME_LANGUAGE)) return false;
@@ -362,177 +263,104 @@ public class LuaDocParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b, l, _NONE_, TAG_LAN, null);
     r = consumeTokens(b, 1, TAG_NAME_LANGUAGE, ID);
     p = r; // pin = 1
-    r = r && tag_lan_2(b, l + 1);
     exit_section_(b, l, m, r, p, null);
     return r || p;
   }
 
-  // comment_string?
-  private static boolean tag_lan_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_lan_2")) return false;
-    comment_string(b, l + 1);
-    return true;
-  }
-
   /* ********************************************************** */
-  // TAG_NAME comment_string?
+  // TAG_NAME
   public static boolean tag_other(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_other")) return false;
     if (!nextTokenIs(b, TAG_NAME)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_OTHER, null);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, TAG_NAME);
-    p = r; // pin = 1
-    r = r && tag_other_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // comment_string?
-  private static boolean tag_other_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_other_1")) return false;
-    comment_string(b, l + 1);
-    return true;
+    exit_section_(b, m, TAG_OTHER, r);
+    return r;
   }
 
   /* ********************************************************** */
-  // TAG_NAME_OVERLOAD comment_string
+  // TAG_NAME_OVERLOAD
   public static boolean tag_overload(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_overload")) return false;
     if (!nextTokenIs(b, TAG_NAME_OVERLOAD)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_OVERLOAD, null);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, TAG_NAME_OVERLOAD);
-    p = r; // pin = 1
-    r = r && comment_string(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
+    exit_section_(b, m, TAG_OVERLOAD, r);
+    return r;
   }
 
   /* ********************************************************** */
-  // TAG_NAME_PARAM comment_string?
+  // TAG_NAME_PARAM
   public static boolean tag_param(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_param")) return false;
     if (!nextTokenIs(b, TAG_NAME_PARAM)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_PARAM, null);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, TAG_NAME_PARAM);
-    p = r; // pin = 1
-    r = r && tag_param_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // comment_string?
-  private static boolean tag_param_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_param_1")) return false;
-    comment_string(b, l + 1);
-    return true;
+    exit_section_(b, m, TAG_PARAM, r);
+    return r;
   }
 
   /* ********************************************************** */
-  // TAG_NAME_RETURN comment_string?
+  // TAG_NAME_RETURN
   public static boolean tag_return(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_return")) return false;
     if (!nextTokenIs(b, TAG_NAME_RETURN)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_RETURN, null);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, TAG_NAME_RETURN);
-    p = r; // pin = 1
-    r = r && tag_return_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // comment_string?
-  private static boolean tag_return_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_return_1")) return false;
-    comment_string(b, l + 1);
-    return true;
+    exit_section_(b, m, TAG_RETURN, r);
+    return r;
   }
 
   /* ********************************************************** */
-  // TAG_NAME_SEE comment_string?
+  // TAG_NAME_SEE
   public static boolean tag_see(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_see")) return false;
     if (!nextTokenIs(b, TAG_NAME_SEE)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_SEE, null);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, TAG_NAME_SEE);
-    p = r; // pin = 1
-    r = r && tag_see_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // comment_string?
-  private static boolean tag_see_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_see_1")) return false;
-    comment_string(b, l + 1);
-    return true;
+    exit_section_(b, m, TAG_SEE, r);
+    return r;
   }
 
   /* ********************************************************** */
-  // TAG_NAME_SUPPRESS comment_string?
+  // TAG_NAME_SUPPRESS
   public static boolean tag_suppress(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_suppress")) return false;
     if (!nextTokenIs(b, TAG_NAME_SUPPRESS)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_SUPPRESS, null);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, TAG_NAME_SUPPRESS);
-    p = r; // pin = 1
-    r = r && tag_suppress_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // comment_string?
-  private static boolean tag_suppress_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_suppress_1")) return false;
-    comment_string(b, l + 1);
-    return true;
+    exit_section_(b, m, TAG_SUPPRESS, r);
+    return r;
   }
 
   /* ********************************************************** */
-  // TAG_NAME_TYPE comment_string?
+  // TAG_NAME_TYPE
   public static boolean tag_type(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_type")) return false;
     if (!nextTokenIs(b, TAG_NAME_TYPE)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_TYPE, null);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, TAG_NAME_TYPE);
-    p = r; // pin = 1
-    r = r && tag_type_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // comment_string?
-  private static boolean tag_type_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_type_1")) return false;
-    comment_string(b, l + 1);
-    return true;
+    exit_section_(b, m, TAG_TYPE, r);
+    return r;
   }
 
   /* ********************************************************** */
-  // TAG_NAME_VARARG comment_string?
+  // TAG_NAME_VARARG
   public static boolean tag_vararg(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "tag_vararg")) return false;
     if (!nextTokenIs(b, TAG_NAME_VARARG)) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, TAG_VARARG, null);
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, TAG_NAME_VARARG);
-    p = r; // pin = 1
-    r = r && tag_vararg_1(b, l + 1);
-    exit_section_(b, l, m, r, p, null);
-    return r || p;
-  }
-
-  // comment_string?
-  private static boolean tag_vararg_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "tag_vararg_1")) return false;
-    comment_string(b, l + 1);
-    return true;
+    exit_section_(b, m, TAG_VARARG, r);
+    return r;
   }
 
 }

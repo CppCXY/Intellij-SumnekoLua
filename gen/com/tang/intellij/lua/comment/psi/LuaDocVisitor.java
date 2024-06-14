@@ -14,10 +14,6 @@ public class LuaDocVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitGenericDef(@NotNull LuaDocGenericDef o) {
-    visitPsiElement(o);
-  }
-
   public void visitTagAlias(@NotNull LuaDocTagAlias o) {
     visitTag(o);
   }

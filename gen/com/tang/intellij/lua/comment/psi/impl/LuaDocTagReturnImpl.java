@@ -27,10 +27,4 @@ public class LuaDocTagReturnImpl extends ASTWrapperPsiElement implements LuaDocT
     else super.accept(visitor);
   }
 
-  @Override
-  @Nullable
-  public LuaDocCommentString getCommentString() {
-    return findChildByClass(LuaDocCommentString.class);
-  }
-
 }

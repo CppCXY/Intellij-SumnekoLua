@@ -11,7 +11,6 @@ public interface LuaDocTypes {
 
   IElementType ACCESS_MODIFIER = LuaParserDefinitionKt.createDocType("ACCESS_MODIFIER");
   IElementType COMMENT_STRING = LuaParserDefinitionKt.createDocType("COMMENT_STRING");
-  IElementType GENERIC_DEF = LuaParserDefinitionKt.createDocType("GENERIC_DEF");
   IElementType TAG_ALIAS = LuaParserDefinitionKt.createDocType("TAG_ALIAS");
   IElementType TAG_CLASS = LuaParserDefinitionKt.createDocType("TAG_CLASS");
   IElementType TAG_DEF = LuaParserDefinitionKt.createDocType("TAG_DEF");
@@ -28,7 +27,6 @@ public interface LuaDocTypes {
   IElementType TAG_VARARG = LuaParserDefinitionKt.createDocType("TAG_VARARG");
 
   IElementType AT = new LuaDocTokenType("@");
-  IElementType CLASS_NAME_REF = new LuaDocTokenType("class_name_ref");
   IElementType COMMA = new LuaDocTokenType(",");
   IElementType DASHES = new LuaDocTokenType("DASHES");
   IElementType EQ = new LuaDocTokenType("=");
@@ -74,9 +72,6 @@ public interface LuaDocTypes {
       }
       else if (type == COMMENT_STRING) {
         return new LuaDocCommentStringImpl(node);
-      }
-      else if (type == GENERIC_DEF) {
-        return new LuaDocGenericDefImpl(node);
       }
       else if (type == TAG_ALIAS) {
         return new LuaDocTagAliasImpl(node);

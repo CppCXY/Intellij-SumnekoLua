@@ -7,7 +7,4 @@ import com.intellij.psi.PsiElement;
 
 public interface LuaDocTagGenericList extends LuaDocTag {
 
-  @NotNull
-  List<LuaDocGenericDef> getGenericDefList();
-
 }

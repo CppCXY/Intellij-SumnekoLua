@@ -10,7 +10,4 @@ public interface LuaDocTagVararg extends LuaDocTag {
   @Nullable
   LuaDocCommentString getCommentString();
 
-  @Nullable
-  LuaDocTy getTy();
-
 }

@@ -7,9 +7,6 @@ import com.intellij.psi.PsiElement;
 
 public interface LuaDocGenericDef extends LuaDocPsiElement {
 
-  @Nullable
-  LuaDocClassNameRef getClassNameRef();
-
   @NotNull
   PsiElement getId();
 

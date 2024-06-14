@@ -28,12 +28,6 @@ public class LuaDocGenericDefImpl extends ASTWrapperPsiElement implements LuaDoc
   }
 
   @Override
-  @Nullable
-  public LuaDocClassNameRef getClassNameRef() {
-    return findChildByClass(LuaDocClassNameRef.class);
-  }
-
-  @Override
   @NotNull
   public PsiElement getId() {
     return findNotNullChildByType(ID);

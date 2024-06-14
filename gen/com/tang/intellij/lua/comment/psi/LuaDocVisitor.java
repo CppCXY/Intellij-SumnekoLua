@@ -10,60 +10,12 @@ public class LuaDocVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitArrTy(@NotNull LuaDocArrTy o) {
-    visitTy(o);
-  }
-
-  public void visitClassNameRef(@NotNull LuaDocClassNameRef o) {
-    visitPsiElement(o);
-  }
-
   public void visitCommentString(@NotNull LuaDocCommentString o) {
     visitPsiElement(o);
   }
 
-  public void visitFunctionParam(@NotNull LuaDocFunctionParam o) {
-    visitPsiElement(o);
-  }
-
-  public void visitFunctionTy(@NotNull LuaDocFunctionTy o) {
-    visitTy(o);
-  }
-
-  public void visitGeneralTy(@NotNull LuaDocGeneralTy o) {
-    visitTy(o);
-  }
-
   public void visitGenericDef(@NotNull LuaDocGenericDef o) {
     visitPsiElement(o);
-  }
-
-  public void visitGenericTy(@NotNull LuaDocGenericTy o) {
-    visitTy(o);
-  }
-
-  public void visitParTy(@NotNull LuaDocParTy o) {
-    visitTy(o);
-  }
-
-  public void visitParamNameRef(@NotNull LuaDocParamNameRef o) {
-    visitPsiElement(o);
-  }
-
-  public void visitStringLiteralTy(@NotNull LuaDocStringLiteralTy o) {
-    visitTy(o);
-  }
-
-  public void visitTableField(@NotNull LuaDocTableField o) {
-    visitPsiElement(o);
-  }
-
-  public void visitTableDef(@NotNull LuaDocTableDef o) {
-    visitPsiElement(o);
-  }
-
-  public void visitTableTy(@NotNull LuaDocTableTy o) {
-    visitTy(o);
   }
 
   public void visitTagAlias(@NotNull LuaDocTagAlias o) {
@@ -87,6 +39,10 @@ public class LuaDocVisitor extends PsiElementVisitor {
   }
 
   public void visitTagLan(@NotNull LuaDocTagLan o) {
+    visitTag(o);
+  }
+
+  public void visitTagOther(@NotNull LuaDocTagOther o) {
     visitTag(o);
   }
 
@@ -116,22 +72,6 @@ public class LuaDocVisitor extends PsiElementVisitor {
 
   public void visitTagVararg(@NotNull LuaDocTagVararg o) {
     visitTag(o);
-  }
-
-  public void visitTy(@NotNull LuaDocTy o) {
-    visitPsiElement(o);
-  }
-
-  public void visitTypeList(@NotNull LuaDocTypeList o) {
-    visitPsiElement(o);
-  }
-
-  public void visitUnionTy(@NotNull LuaDocUnionTy o) {
-    visitTy(o);
-  }
-
-  public void visitVarargParam(@NotNull LuaDocVarargParam o) {
-    visitPsiElement(o);
   }
 
   public void visitTag(@NotNull LuaDocTag o) {

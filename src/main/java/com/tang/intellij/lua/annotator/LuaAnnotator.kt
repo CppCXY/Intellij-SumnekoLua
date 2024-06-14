@@ -158,31 +158,31 @@ class LuaAnnotator : Annotator {
     }
 
     internal inner class LuaDocElementVisitor : LuaDocVisitor() {
-        override fun visitTagClass(o: LuaDocTagClass) {
-            super.visitTagClass(o)
-            newInfoAnnotation(o.id, null) {
-                it.textAttributes(LuaHighlightingData.CLASS_NAME)
-            }
-        }
+//        override fun visitTagClass(o: LuaDocTagClass) {
+//            super.visitTagClass(o)
+//            newInfoAnnotation(o.id, null) {
+//                it.textAttributes(LuaHighlightingData.CLASS_NAME)
+//            }
+//        }
+//
+//        override fun visitTagAlias(o: LuaDocTagAlias) {
+//            super.visitTagAlias(o)
+//            val id = o.id ?: return
+//            newInfoAnnotation(id, null) {
+//                it.textAttributes(LuaHighlightingData.TYPE_ALIAS)
+//            }
+//        }
 
-        override fun visitTagAlias(o: LuaDocTagAlias) {
-            super.visitTagAlias(o)
-            val id = o.id ?: return
-            newInfoAnnotation(id, null) {
-                it.textAttributes(LuaHighlightingData.TYPE_ALIAS)
-            }
-        }
+//        override fun visitClassNameRef(o: LuaDocClassNameRef) {
+//            newInfoAnnotation(o, null) {
+//                it.textAttributes(LuaHighlightingData.CLASS_REFERENCE)
+//            }
+//        }
 
-        override fun visitClassNameRef(o: LuaDocClassNameRef) {
-            newInfoAnnotation(o, null) {
-                it.textAttributes(LuaHighlightingData.CLASS_REFERENCE)
-            }
-        }
-
-        override fun visitParamNameRef(o: LuaDocParamNameRef) {
-            newInfoAnnotation(o, null) {
-                it.textAttributes(LuaHighlightingData.DOC_COMMENT_TAG_VALUE)
-            }
-        }
+//        override fun visitParamNameRef(o: LuaDocParamNameRef) {
+//            newInfoAnnotation(o, null) {
+//                it.textAttributes(LuaHighlightingData.DOC_COMMENT_TAG_VALUE)
+//            }
+//        }
     }
 }

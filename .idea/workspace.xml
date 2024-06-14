@@ -5,14 +5,90 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ea52885-23ce-41b2-b06e-66a953a5c5ae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoServer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/highlighting/LuaHighlightErrorFilter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/highlighting/LuaHighlightErrorFilter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoClient.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerDescriptor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerDescriptor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerSupportProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerSupportProvider.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/lexer/_LuaDocLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/lexer/_LuaDocLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/parser/LuaDocParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/parser/LuaDocParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocAccessModifier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocArrTy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocClassNameRef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocCommentString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocFunctionParam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocFunctionTy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocGeneralTy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocGenericDef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocGenericTy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocParTy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocParamNameRef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocStringLiteralTy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTableDef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTableField.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTableTy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagAlias.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagAuthor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagDef.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagDeprecated.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagField.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagGenericList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagLan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagOverload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagParam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagReturn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagSee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagSince.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagSuppress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagVararg.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTypeList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTypes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocUnionTy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocVarargParam.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocVersion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocVisitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocAccessModifierImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocArrTyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocClassNameRefImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocCommentStringImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocFunctionParamImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocFunctionTyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocGeneralTyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocGenericDefImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocGenericTyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocParTyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocParamNameRefImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocStringLiteralTyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTableDefImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTableFieldImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTableTyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagAliasImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagClassImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagDefImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagFieldImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagGenericListImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagLanImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagOverloadImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagParamImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagReturnImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagSeeImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagSuppressImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagTypeImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagVarargImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTypeListImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocUnionTyImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocVarargParamImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/annotator/LuaAnnotator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/annotator/LuaAnnotator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/codeInsight/LuaReadWriteAccessDetector.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/codeInsight/LuaReadWriteAccessDetector.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/doc.bnf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/doc.bnf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/doc.flex" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/doc.flex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/highlighting/LuaSyntaxHighlighter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/highlighting/LuaSyntaxHighlighter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/lang/LuaParserDefinition.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tang/intellij/lua/lang/LuaParserDefinition.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/LspFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/LspFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoClient.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerDescriptor.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/cppcxy/ide/lsp/SumnekoLspServerSupportProvider.kt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,11 +165,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/zc/Desktop/server_gonghui_dev/gameserver/script",
+    "last_opened_file_path": "C:/Users/zc/Desktop/intellij",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
     "kotlin-gradle-user-dirs": [
@@ -159,13 +241,27 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="jdk-17.0.10-corretto-17.0.10-49964104c9db-4f3ef767" />
-        <option value="jdk-17.0.10-corretto-17.0.10-5b172459f563-b10de040" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ea52885-23ce-41b2-b06e-66a953a5c5ae" name="Changes" comment="" />
+      <created>1718382103193</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718382103193</updated>
+      <workItem from="1718382105829" duration="96000" />
+      <workItem from="1718382210952" duration="2929000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.yml" />
   </component>
@@ -278,5 +374,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

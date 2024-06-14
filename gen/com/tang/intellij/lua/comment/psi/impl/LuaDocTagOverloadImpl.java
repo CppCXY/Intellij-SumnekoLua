@@ -29,8 +29,8 @@ public class LuaDocTagOverloadImpl extends ASTWrapperPsiElement implements LuaDo
 
   @Override
   @Nullable
-  public LuaDocFunctionTy getFunctionTy() {
-    return findChildByClass(LuaDocFunctionTy.class);
+  public LuaDocCommentString getCommentString() {
+    return findChildByClass(LuaDocCommentString.class);
   }
 
 }

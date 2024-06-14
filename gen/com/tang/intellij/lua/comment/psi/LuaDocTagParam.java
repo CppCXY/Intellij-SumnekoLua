@@ -10,10 +10,4 @@ public interface LuaDocTagParam extends LuaDocTag {
   @Nullable
   LuaDocCommentString getCommentString();
 
-  @Nullable
-  LuaDocParamNameRef getParamNameRef();
-
-  @Nullable
-  LuaDocTy getTy();
-
 }

@@ -8,6 +8,6 @@ import com.intellij.psi.PsiElement;
 public interface LuaDocTagOverload extends LuaDocTag {
 
   @Nullable
-  LuaDocFunctionTy getFunctionTy();
+  LuaDocCommentString getCommentString();
 
 }

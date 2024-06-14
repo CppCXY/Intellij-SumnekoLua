@@ -10,7 +10,4 @@ public interface LuaDocTagType extends LuaDocTag {
   @Nullable
   LuaDocCommentString getCommentString();
 
-  @Nullable
-  LuaDocTy getTy();
-
 }

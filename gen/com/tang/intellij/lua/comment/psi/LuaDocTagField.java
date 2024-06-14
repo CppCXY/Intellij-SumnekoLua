@@ -8,18 +8,6 @@ import com.intellij.psi.PsiElement;
 public interface LuaDocTagField extends LuaDocTag {
 
   @Nullable
-  LuaDocAccessModifier getAccessModifier();
-
-  @Nullable
-  LuaDocClassNameRef getClassNameRef();
-
-  @Nullable
   LuaDocCommentString getCommentString();
-
-  @Nullable
-  LuaDocTy getTy();
-
-  @Nullable
-  PsiElement getId();
 
 }

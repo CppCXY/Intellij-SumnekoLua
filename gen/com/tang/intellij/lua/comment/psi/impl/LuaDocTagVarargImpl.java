@@ -33,10 +33,4 @@ public class LuaDocTagVarargImpl extends ASTWrapperPsiElement implements LuaDocT
     return findChildByClass(LuaDocCommentString.class);
   }
 
-  @Override
-  @Nullable
-  public LuaDocTy getTy() {
-    return findChildByClass(LuaDocTy.class);
-  }
-
 }

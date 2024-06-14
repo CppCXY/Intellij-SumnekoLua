@@ -11,14 +11,14 @@ import static com.tang.intellij.lua.comment.psi.LuaDocTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import com.tang.intellij.lua.comment.psi.*;
 
-public class LuaDocClassNameRefImpl extends ASTWrapperPsiElement implements LuaDocClassNameRef {
+public class LuaDocTagOtherImpl extends ASTWrapperPsiElement implements LuaDocTagOther {
 
-  public LuaDocClassNameRefImpl(@NotNull ASTNode node) {
+  public LuaDocTagOtherImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull LuaDocVisitor visitor) {
-    visitor.visitClassNameRef(this);
+    visitor.visitTagOther(this);
   }
 
   @Override
@@ -28,9 +28,9 @@ public class LuaDocClassNameRefImpl extends ASTWrapperPsiElement implements LuaD
   }
 
   @Override
-  @NotNull
-  public PsiElement getId() {
-    return findNotNullChildByType(ID);
+  @Nullable
+  public LuaDocCommentString getCommentString() {
+    return findChildByClass(LuaDocCommentString.class);
   }
 
 }

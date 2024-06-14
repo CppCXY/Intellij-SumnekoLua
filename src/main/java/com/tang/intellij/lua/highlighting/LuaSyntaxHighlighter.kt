@@ -84,7 +84,6 @@ class LuaSyntaxHighlighter : SyntaxHighlighterBase() {
             fillMap(ourMap1, DOC_TAG_TOKENS, LuaHighlightingData.DOC_COMMENT_TAG)
             fillMap(ourMap1, LuaHighlightingData.DOC_COMMENT_TAG, LuaDocTypes.TAG_NAME)
             fillMap(ourMap1, DOC_KEYWORD_TOKENS, LuaHighlightingData.DOC_KEYWORD)
-            fillMap(ourMap1, LuaHighlightingData.BRACKETS, LuaDocTypes.ARR)
             fillMap(ourMap1, LuaHighlightingData.PARENTHESES, LuaDocTypes.LPAREN, LuaDocTypes.RPAREN)
 
             //primitive types

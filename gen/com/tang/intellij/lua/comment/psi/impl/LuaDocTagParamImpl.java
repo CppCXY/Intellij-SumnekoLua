@@ -33,16 +33,4 @@ public class LuaDocTagParamImpl extends ASTWrapperPsiElement implements LuaDocTa
     return findChildByClass(LuaDocCommentString.class);
   }
 
-  @Override
-  @Nullable
-  public LuaDocParamNameRef getParamNameRef() {
-    return findChildByClass(LuaDocParamNameRef.class);
-  }
-
-  @Override
-  @Nullable
-  public LuaDocTy getTy() {
-    return findChildByClass(LuaDocTy.class);
-  }
-
 }

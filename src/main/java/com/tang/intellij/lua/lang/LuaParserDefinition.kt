@@ -160,8 +160,6 @@ class LuaParserDefinition : ParserDefinition {
             LuaDocTypes.TAG_NAME_ALIAS
         )
         val DOC_KEYWORD_TOKENS = TokenSet.create(
-            LuaDocTypes.FUN,
-            LuaDocTypes.VARARG
         )
         val FILE = IFileElementType(LuaLanguage.INSTANCE)
     }

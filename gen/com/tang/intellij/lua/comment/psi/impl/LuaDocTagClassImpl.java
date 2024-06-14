@@ -29,20 +29,8 @@ public class LuaDocTagClassImpl extends ASTWrapperPsiElement implements LuaDocTa
 
   @Override
   @Nullable
-  public LuaDocClassNameRef getClassNameRef() {
-    return findChildByClass(LuaDocClassNameRef.class);
-  }
-
-  @Override
-  @Nullable
   public LuaDocCommentString getCommentString() {
     return findChildByClass(LuaDocCommentString.class);
-  }
-
-  @Override
-  @NotNull
-  public PsiElement getId() {
-    return findNotNullChildByType(ID);
   }
 
 }

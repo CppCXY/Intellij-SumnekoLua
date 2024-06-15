@@ -27,4 +27,10 @@ public class LuaDocTagGenericListImpl extends ASTWrapperPsiElement implements Lu
     else super.accept(visitor);
   }
 
+  @Override
+  @Nullable
+  public LuaDocCommentString getCommentString() {
+    return findChildByClass(LuaDocCommentString.class);
+  }
+
 }

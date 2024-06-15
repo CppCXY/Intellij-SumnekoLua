@@ -88,9 +88,9 @@ task("install", type = Copy::class) {
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
     pluginName.set("Sumneko-Lua")
-    version.set(buildVersionData.ideaSDKVersion)
+//    version.set(buildVersionData.ideaSDKVersion)
     type.set(buildVersionData.type) // Target IDE Platform
-
+    localPath.set("C:\\Users\\zc\\AppData\\Local\\Programs\\IntelliJ IDEA Ultimate")
     sandboxDir.set("${project.buildDir}/${buildVersionData.ideaSDKShortVersion}/idea-sandbox")
     plugins.set(listOf("com.redhat.devtools.lsp4ij:0.0.2-20240614-013035@nightly"))
 }

@@ -29,6 +29,12 @@ public class LuaDocTagLanImpl extends ASTWrapperPsiElement implements LuaDocTagL
 
   @Override
   @Nullable
+  public LuaDocCommentString getCommentString() {
+    return findChildByClass(LuaDocCommentString.class);
+  }
+
+  @Override
+  @Nullable
   public PsiElement getId() {
     return findChildByType(ID);
   }

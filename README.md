@@ -6,7 +6,8 @@ https://plugins.jetbrains.com/plugin/22315-sumnekolua/versions/stable/365277
 
 ## Introduce
 
-The current plugin is still in the early stages and requires sufficient LSP (Language Server Protocol) support from JetBrains itself. This plugin only includes language server functionality and does not have debugging capabilities.
+This is a plugin for Intellij IDEA to support Lua language. It is based on SumnekoLua(aka luals) 
+and provide some features like code completion, code navigation, code formatting, etc.
 
 ## How to develop
 

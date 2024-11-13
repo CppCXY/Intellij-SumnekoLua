@@ -4,8 +4,113 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ea52885-23ce-41b2-b06e-66a953a5c5ae" name="Changes" comment="remove highlightfilter">
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+    <list default="true" id="6ea52885-23ce-41b2-b06e-66a953a5c5ae" name="Changes" comment="fix build">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/comment/lexer/_LuaDocLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/lexer/_LuaDocLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/comment/parser/LuaDocParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/parser/LuaDocParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/comment/psi/LuaDocAny.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocAny.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/comment/psi/LuaDocTagLan.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagLan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/comment/psi/LuaDocTagNormal.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTagNormal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/comment/psi/LuaDocTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/comment/psi/LuaDocVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/LuaDocVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocAnyImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocAnyImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagLanImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagLanImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagNormalImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/comment/psi/impl/LuaDocTagNormalImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/lexer/_LuaLexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/lexer/_LuaLexer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/parser/LuaParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/parser/LuaParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaArgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaArgs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaAssignStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaAssignStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaAttribute.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaAttribute.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaBinaryExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaBinaryExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaBinaryOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaBinaryOp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaBreakStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaBreakStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaCallExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaCallExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaClassMethodDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaClassMethodDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaClassMethodName.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaClassMethodName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaClosureExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaClosureExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaDoStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaDoStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaEmptyStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaEmptyStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaExprList.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaExprList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaExprStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaExprStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaForAStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaForAStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaForBStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaForBStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaFuncBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaFuncBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaFuncDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaFuncDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaGotoStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaGotoStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaIfStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaIfStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaIndexExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaIndexExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaLabelStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaLabelStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaListArgs.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaListArgs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaLiteralExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaLiteralExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaLocalDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaLocalDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaLocalFuncDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaLocalFuncDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaNameDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaNameDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaNameExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaNameExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaNameList.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaNameList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaParamNameDef.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaParamNameDef.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaParenExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaParenExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaRepeatStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaRepeatStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaReturnStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaReturnStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaShebangLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaShebangLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaSingleArg.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaSingleArg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaStatement.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaStatement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaTableExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaTableExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaTableField.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaTableField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaTableFieldSep.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaTableFieldSep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaUnaryExpr.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaUnaryExpr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaUnaryOp.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaUnaryOp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaVarList.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaVarList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/LuaWhileStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/LuaWhileStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaArgsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaArgsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaAssignStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaAssignStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaAttributeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaAttributeImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaBinaryExprImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaBinaryExprImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaBinaryOpImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaBinaryOpImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaBlockImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaBlockImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaBreakStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaBreakStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaCallExprImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaCallExprImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaClassMethodDefImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaClassMethodDefImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaClassMethodNameImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaClassMethodNameImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaClosureExprImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaClosureExprImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaDoStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaDoStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaEmptyStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaEmptyStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaExprImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaExprImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaExprListImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaExprListImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaExprStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaExprStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaForAStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaForAStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaForBStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaForBStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaFuncBodyImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaFuncBodyImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaFuncDefImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaFuncDefImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaGotoStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaGotoStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaIfStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaIfStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaIndexExprImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaIndexExprImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaLabelStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaLabelStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaListArgsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaListArgsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaLiteralExprImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaLiteralExprImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaLocalDefImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaLocalDefImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaLocalFuncDefImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaLocalFuncDefImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaNameDefImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaNameDefImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaNameExprImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaNameExprImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaNameListImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaNameListImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaParamNameDefImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaParamNameDefImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaParenExprImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaParenExprImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaRepeatStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaRepeatStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaReturnStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaReturnStatImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaShebangLineImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaShebangLineImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaSingleArgImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaSingleArgImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaStatementImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaStatementImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaTableExprImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaTableExprImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaTableFieldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaTableFieldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaTableFieldSepImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaTableFieldSepImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaUnaryExprImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaUnaryExprImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaUnaryOpImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaUnaryOpImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaVarListImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaVarListImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/gen/com/tang/intellij/lua/psi/impl/LuaWhileStatImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gen/com/tang/intellij/lua/psi/impl/LuaWhileStatImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,39 +178,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Intellij-Lsp4ij-Sumneko [setupDependencies].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Intellij-SumnekoLua [buildPlugin].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Intellij-SumnekoLua [setupDependencies].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Run Plugin.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/zc/Desktop/xlua2/emmylua-love2d&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;kotlin-gradle-user-dirs&quot;: [
-      &quot;C:\\Users\\zc\\.gradle&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Intellij-Lsp4ij-Sumneko [setupDependencies].executor": "Run",
+    "Gradle.Intellij-SumnekoLua [buildPlugin].executor": "Run",
+    "Gradle.Intellij-SumnekoLua [setupDependencies].executor": "Run",
+    "Gradle.Run Plugin.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/zc/Desktop/xlua2/emmylua-love2d",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\zc\Desktop\github\Intellij-SumnekoLua\src\main\resources\server" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\zc\Desktop\github\Intellij-SumnekoLua" />
       <recent name="C:\Users\zc\Desktop\github\Intellij-SumnekoLua\src\main\java\com\cppcxy\ide\setting" />
       <recent name="C:\Users\zc\Desktop\github\Intellij-SumnekoLua\" />
     </key>
@@ -117,7 +218,7 @@
       <recent name="com.tang.intellij.lua.lang" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Intellij-SumnekoLua [buildPlugin]">
+  <component name="RunManager" selected="Gradle.Run Plugin">
     <configuration default="true" type="lua.app" factoryName="Lua Application">
       <option name="program" value="lua.exe" />
       <option name="file" value="" />
@@ -187,7 +288,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix doc parse" />
     <MESSAGE value="remove highlightfilter" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove highlightfilter" />
+    <MESSAGE value="fix build" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix build" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

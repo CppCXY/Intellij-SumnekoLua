@@ -103,7 +103,7 @@ repositories {
 
 sourceSets {
     main {
-        java.srcDirs("gen")
+        java.srcDirs("src/main/gen")
         resources.srcDir("resources")
     }
 }

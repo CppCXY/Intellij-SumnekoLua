@@ -92,7 +92,7 @@ intellij {
     type.set(buildVersionData.type) // Target IDE Platform
 
     sandboxDir.set("${project.buildDir}/${buildVersionData.ideaSDKShortVersion}/idea-sandbox")
-    plugins.set(listOf("com.redhat.devtools.lsp4ij:0.0.2-20240614-013035@nightly"))
+    plugins.set(listOf("com.redhat.devtools.lsp4ij:0.7.0"))
 }
 
 repositories {

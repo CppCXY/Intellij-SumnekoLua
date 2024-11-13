@@ -165,7 +165,7 @@
         <lang.syntaxHighlighterFactory
                 language="Lua"
                 implementationClass="com.tang.intellij.lua.highlighting.LuaSyntaxHighlighterFactory"/>
-        <highlightErrorFilter implementation="com.tang.intellij.lua.highlighting.LuaHighlightErrorFilter"/>
+<!--        <highlightErrorFilter implementation="com.tang.intellij.lua.highlighting.LuaHighlightErrorFilter"/>-->
         <annotator language="Lua" implementationClass="com.tang.intellij.lua.annotator.LuaAnnotator"/>
 
         <highlightUsagesHandlerFactory
@@ -193,6 +193,12 @@
 
         <statusBarWidgetFactory id="SumnekoBar" implementation="com.cppcxy.ide.editor.statusbar.StatusBarWidgetFactory"/>
         <lang.commenter language="Lua" implementationClass="com.tang.intellij.lua.comment.LuaCommenter"/>
+
+        <!-- LSP textDocument/documentSymbol -->
+        <lang.psiStructureViewFactory
+                id="SumnekoLua"
+                language="Lua"
+                implementationClass="com.redhat.devtools.lsp4ij.features.documentSymbol.LSPDocumentSymbolStructureViewFactory"/>
     </extensions>
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
         <server id="SumnekoLua"

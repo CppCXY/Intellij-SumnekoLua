@@ -1,18 +1,22 @@
 # Intellij-SumnekoLua
 
-## MarketPlace
+## Marketplace
 
-https://plugins.jetbrains.com/plugin/22315-sumnekolua/versions/stable/365277
+You can find the plugin on the JetBrains Marketplace:  
+[SumnekoLua Plugin - Stable Version](https://plugins.jetbrains.com/plugin/22315-sumnekolua/versions/stable/365277)
 
-## Introduce
+## Introduction
 
-This is a plugin for Intellij IDEA to support Lua language. It is based on SumnekoLua(aka luals) 
-and provide some features like code completion, code navigation, code formatting, etc.
+Intellij-SumnekoLua is a plugin for IntelliJ IDEA that adds comprehensive support for the Lua programming language. Built on top of SumnekoLua (also known as luals), this plugin offers a range of features to enhance your Lua development experience, including:
 
-## How to develop
+- Intelligent code completion
+- Advanced code navigation
+- Automatic code formatting
+- Syntax highlighting
+- Error detection and quick fixes
 
-1. Open this project with Intellij idea and wait sync
-2. Select and Run `buildPlugin` from gradle window
-3. Run `runide` from gradle
+Whether you are working on small scripts or large Lua projects, Intellij-SumnekoLua aims to streamline your workflow and improve productivity.
 
+## Performance Recommendation
 
+If you encounter any performance issues while using this plugin, we recommend trying [Intellij-Emmylua2](https://plugins.jetbrains.com/plugin/25076-emmylua2), which may offer better performance for certain use cases.

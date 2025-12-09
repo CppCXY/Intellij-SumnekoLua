@@ -9,6 +9,7 @@ build/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.intellijPlatform
 *.iws
 *.iml
 *.ipr
@@ -42,6 +43,7 @@ bin/
 .DS_Store
 
 src/main/resources/server
+src/main/resources/debugger
 lua-language-server*
 .idea
 .run

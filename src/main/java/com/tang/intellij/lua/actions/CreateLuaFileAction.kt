@@ -2,28 +2,28 @@ package com.tang.intellij.lua.actions
 
 import com.intellij.ide.actions.CreateFileFromTemplateAction
 import com.intellij.ide.actions.CreateFileFromTemplateDialog
+import com.intellij.openapi.project.DumbAware
+import com.intellij.openapi.project.Project
 import com.intellij.psi.PsiDirectory
 import com.tang.intellij.lua.lang.LuaIcons
-import com.intellij.openapi.project.DumbAware;
-import com.intellij.openapi.project.Project;
-
 
 /**
- *
- * Created by tangzx on 2016/12/24.
+ * Enhanced Lua file creation action with Java-style dialog
  */
-class CreateLuaFileAction : CreateFileFromTemplateAction(CREATE_LUA_FILE, "", LuaIcons.FILE), DumbAware {
+class CreateLuaFileAction : CreateFileFromTemplateAction("Lua File", "Create a new Lua file", LuaIcons.FILE), DumbAware {
+    
     override fun buildDialog(project: Project, directory: PsiDirectory, builder: CreateFileFromTemplateDialog.Builder) {
-        builder.setTitle(CREATE_LUA_FILE)
-            .addKind("Source File", LuaIcons.FILE, "NewLua.lua")
+        builder.setTitle("New Lua Class/File")
+            .addKind("Empty File", LuaIcons.FILE, "LuaEmpty.lua")
+            .addKind("Class", LuaIcons.FILE, "LuaClass.lua")
+            .addKind("Module", LuaIcons.FILE, "LuaModule.lua")
+            .addKind("Enum", LuaIcons.FILE, "LuaEnum.lua")
+            .addKind("Unity", LuaIcons.FILE, "LuaUnity.lua")
     }
 
-    override fun getActionName(psiDirectory: PsiDirectory, s: String, s1: String): String {
-        return CREATE_LUA_FILE
-    }
-
-    companion object {
-        private const val CREATE_LUA_FILE = "New Lua File"
+    override fun getActionName(directory: PsiDirectory, newName: String, templateName: String): String {
+        return "Create Lua File: $newName"
     }
 }
+
 

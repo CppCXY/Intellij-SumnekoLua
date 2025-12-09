@@ -16,6 +16,8 @@
 
 package com.tang.intellij.lua.lang
 
+//import com.tang.intellij.lua.comment.psi.LuaDocElementType
+//import com.tang.intellij.lua.comment.psi.impl.LuaCommentImpl
 import com.intellij.lang.ASTNode
 import com.intellij.lang.ParserDefinition
 import com.intellij.lang.PsiParser
@@ -29,14 +31,11 @@ import com.intellij.psi.tree.IElementType
 import com.intellij.psi.tree.IFileElementType
 import com.intellij.psi.tree.TokenSet
 import com.tang.intellij.lua.comment.psi.LuaDocElementType
-import com.tang.intellij.lua.comment.psi.LuaDocTokenType
-//import com.tang.intellij.lua.comment.psi.LuaDocElementType
-import com.tang.intellij.lua.comment.psi.LuaDocTypes
 import com.tang.intellij.lua.comment.psi.impl.LuaCommentImpl
-//import com.tang.intellij.lua.comment.psi.impl.LuaCommentImpl
 import com.tang.intellij.lua.lexer.LuaLexerAdapter
 import com.tang.intellij.lua.parser.LuaParser
 import com.tang.intellij.lua.psi.*
+
 //import com.tang.intellij.lua.stubs.LuaFileElementType
 
 /**
@@ -81,15 +80,7 @@ class LuaParserDefinition : ParserDefinition {
         val type = node.elementType
         if (type === LuaElementType.DOC_COMMENT)
             return LuaCommentImpl(node)
-        return if (type is LuaDocElementType
-            || type === LuaElementType.DOC_TABLE_DEF
-            || type === LuaElementType.DOC_TABLE_FIELD_DEF
-            || type === LuaElementType.CLASS_DEF
-            || type === LuaElementType.CLASS_FIELD_DEF
-            || type === LuaElementType.TYPE_DEF
-            || type === LuaElementType.DOC_ALIAS) {
-            LuaDocTypes.Factory.createElement(node)
-        } else LuaTypes.Factory.createElement(node)
+        return LuaTypes.Factory.createElement(node)
     }
 
     companion object {
@@ -141,14 +132,6 @@ class LuaParserDefinition : ParserDefinition {
             LuaTypes.FALSE,
             LuaTypes.NIL,
             LuaTypes.TRUE
-        )
-        val DOC_TAG_TOKENS = TokenSet.create(
-            LuaDocTypes.TAG_NAME,
-            LuaDocTypes.TAG_NAME_LANGUAGE,
-        )
-        val DOC_KEYWORD_TOKENS = TokenSet.create(
-            LuaDocTypes.FUN,
-            LuaDocTypes.VARARG
         )
         val FILE = IFileElementType(LuaLanguage.INSTANCE)
     }
@@ -214,7 +197,8 @@ enum class LuaLanguageLevel(val version: Int) {
     LUA51(51),
     LUA52(52),
     LUA53(53),
-    LUA54(54);
+    LUA54(54),
+    LUA55(55);
 
     override fun toString(): String {
         return "Lua ${version / 10}.${version % 10}"

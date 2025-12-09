@@ -1,151 +1,242 @@
 import de.undercouch.gradle.tasks.download.Download
-import org.gradle.internal.os.OperatingSystem
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "2.0.0-Beta4"
-    id("org.jetbrains.intellij") version "1.17.2"
-    id("de.undercouch.download") version "5.3.0"
+    id("org.jetbrains.kotlin.jvm") version "2.1.20-Beta2"
+    id("org.jetbrains.intellij.platform") version "2.6.0"
+    id("de.undercouch.download") version "5.6.0"
 }
 
+// ============= 项目配置 =============
+group = "com.cppcxy"
+
+// 版本配置
+object Versions {
+    const val luals = "3.16.1"
+    const val jvm = "17"
+    const val ideaSDK = "2025.2"
+}
+
+// 构建数据配置
 data class BuildData(
     val ideaSDKShortVersion: String,
-    // https://www.jetbrains.com/intellij-repository/releases
     val ideaSDKVersion: String,
     val sinceBuild: String,
     val untilBuild: String,
-    val archiveName: String = "IntelliJ-SumnekoLua",
-    val jvmTarget: String = "17",
-    val targetCompatibilityLevel: JavaVersion = JavaVersion.VERSION_17,
-    // https://github.com/JetBrains/gradle-intellij-plugin/issues/403#issuecomment-542890849
-    val instrumentCodeCompilerVersion: String = ideaSDKVersion,
     val type: String = "IC"
 )
 
-val buildDataList = listOf(
+private val buildDataList = listOf(
     BuildData(
-        ideaSDKShortVersion = "243",
-        ideaSDKVersion = "2024.3",
-        sinceBuild = "243",
-        untilBuild = "252.*",
+        ideaSDKShortVersion = "252",
+        ideaSDKVersion = "2025.2",
+        sinceBuild = "252",
+        untilBuild = "253.*"
     )
 )
 
-group = "com.cppcxy"
-val sumnekoVersion = "3.15.0"
+// 动态版本配置
+private val buildVersion = System.getProperty("IDEA_VER") ?: buildDataList.first().ideaSDKShortVersion
+private val buildVersionData = buildDataList.find { it.ideaSDKShortVersion == buildVersion }
+    ?: error("Unsupported IDEA version: $buildVersion")
+private val runnerNumber = System.getenv("RUNNER_NUMBER") ?: "Dev"
 
-val sumnekoProjectUrl = "https://github.com/LuaLS/lua-language-server"
+version = "${Versions.luals}.${runnerNumber}-IDEA${buildVersion}"
 
-val buildVersion = System.getProperty("IDEA_VER") ?: buildDataList.first().ideaSDKShortVersion
+// 下载URL配置
+object DownloadUrls {
+    private const val lualsProjectUrl = "https://github.com/LuaLS/lua-language-server"
 
-val buildVersionData = buildDataList.find { it.ideaSDKShortVersion == buildVersion }!!
+    // GitHub 镜像配置
+    private val githubMirror = System.getProperty("github.mirror") ?: ""
+    private fun applyMirror(url: String): String {
+        return if (githubMirror.isNotEmpty() && url.startsWith("https://github.com/")) {
+            url.replace("https://github.com/", githubMirror)
+        } else url
+    }
 
-val runnerNumber = System.getenv("RUNNER_NUMBER") ?: "Dev"
-
-version = "${sumnekoVersion}.${runnerNumber}-IDEA${buildVersion}"
-
-task("download", type = Download::class) {
-    src(
-        arrayOf(
-            "${sumnekoProjectUrl}/releases/download/${sumnekoVersion}/lua-language-server-${sumnekoVersion}-win32-x64.zip",
-            "${sumnekoProjectUrl}/releases/download/${sumnekoVersion}/lua-language-server-${sumnekoVersion}-linux-x64.tar.gz",
-            "${sumnekoProjectUrl}/releases/download/${sumnekoVersion}/lua-language-server-${sumnekoVersion}-darwin-arm64.tar.gz",
-            "${sumnekoProjectUrl}/releases/download/${sumnekoVersion}/lua-language-server-${sumnekoVersion}-darwin-x64.tar.gz",
-        )
-    )
-    dest("temp")
+    val luals = arrayOf(
+        "$lualsProjectUrl/releases/download/${Versions.luals}/lua-language-server-${Versions.luals}-win32-x64.zip",
+        "$lualsProjectUrl/releases/download/${Versions.luals}/lua-language-server-${Versions.luals}-linux-x64.tar.gz",
+        "$lualsProjectUrl/releases/download/${Versions.luals}/lua-language-server-${Versions.luals}-darwin-arm64.tar.gz",
+        "$lualsProjectUrl/releases/download/${Versions.luals}/lua-language-server-${Versions.luals}-darwin-x64.tar.gz"
+    ).map { applyMirror(it) }.toTypedArray()
 }
 
-task("makeServer", type = Copy::class) {
-    dependsOn("download")
-    from(zipTree("temp/lua-language-server-${sumnekoVersion}-win32-x64.zip")) {
+// ============= 任务配置 =============
+
+val downloadLuals by tasks.registering(Download::class) {
+    group = "build setup"
+    description = "Download Luals for all platforms"
+
+    src(DownloadUrls.luals)
+    dest("temp/luals")
+    overwrite(false)
+}
+
+
+// 解压所有下载的文件
+val extractDependencies by tasks.registering(Copy::class) {
+    group = "build setup"
+    description = "Extract downloaded luals dependencies"
+
+    dependsOn(downloadLuals)
+    duplicatesStrategy = DuplicatesStrategy.WARN
+
+    // 解压语言服务器
+    from(zipTree("temp/luals/lua-language-server-${Versions.luals}-win32-x64.zip")) {
         into("server/win32-x64")
     }
-    from(tarTree("temp/lua-language-server-${sumnekoVersion}-linux-x64.tar.gz")) {
+    from(tarTree("temp/luals/lua-language-server-${Versions.luals}-linux-x64.tar.gz")) {
         into("server/linux-x64")
     }
-    from(tarTree("temp/lua-language-server-${sumnekoVersion}-darwin-arm64.tar.gz")) {
+    from(tarTree("temp/luals/lua-language-server-${Versions.luals}-darwin-arm64.tar.gz")) {
         into("server/darwin-arm64")
     }
-    from(tarTree("temp/lua-language-server-${sumnekoVersion}-darwin-x64.tar.gz")) {
+    from(tarTree("temp/luals/lua-language-server-${Versions.luals}-darwin-x64.tar.gz")) {
         into("server/darwin-x64")
     }
 
-    destinationDir = file("temp")
+    destinationDir = file("temp/extracted")
 }
 
+// 安装依赖到资源目录
+val installDependencies by tasks.registering(Copy::class) {
+    group = "build setup"
+    description = "Install luals dependencies to resources directory"
 
-task("install", type = Copy::class) {
-    dependsOn("makeServer")
-    from("temp/server") {
+    dependsOn(extractDependencies)
+    duplicatesStrategy = DuplicatesStrategy.WARN
+
+    // 复制语言服务器
+    from("temp/extracted/server") {
         into("server")
     }
+
     destinationDir = file("src/main/resources")
 }
 
+// 清理任务
+val cleanDependencies by tasks.registering(Delete::class) {
+    group = "build setup"
+    description = "Clean downloaded and extracted dependencies"
 
-// Configure Gradle IntelliJ Plugin
-// Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
-intellij {
-    pluginName.set("Sumneko-Lua")
-    version.set(buildVersionData.ideaSDKVersion)
-    type.set(buildVersionData.type) // Target IDE Platform
-
-    sandboxDir.set("${project.buildDir}/${buildVersionData.ideaSDKShortVersion}/idea-sandbox")
-    plugins.set(listOf("com.redhat.devtools.lsp4ij:0.7.0"))
+    delete("temp")
 }
 
+// ============= 仓库配置 =============
 repositories {
-    maven(url = "https://www.jetbrains.com/intellij-repository/releases")
-    maven(url = "https://plugins.jetbrains.com/plugins/nightly/23257")
+    // 添加阿里云镜像仓库优先使用
+    maven {
+        url = uri("https://maven.aliyun.com/repository/central")
+        name = "AliyunMavenCentral"
+    }
+    maven {
+        url = uri("https://maven.aliyun.com/repository/gradle-plugin")
+        name = "AliyunGradlePlugin"
+    }
+    maven {
+        url = uri("https://maven.aliyun.com/repository/google")
+        name = "AliyunGoogle"
+    }
+
+    // 保留原有仓库作为备用
     mavenCentral()
+    google()
+    gradlePluginPortal()
+
+    intellijPlatform {
+        defaultRepositories()
+    }
 }
 
+// ============= 依赖配置 =============
+dependencies {
+    intellijPlatform {
+        intellijIdeaCommunity(Versions.ideaSDK)
+        bundledPlugins("com.intellij.java", "org.jetbrains.kotlin")
+        plugins("com.redhat.devtools.lsp4ij:0.18.0")
+    }
+}
+
+// ============= 源码集配置 =============
 sourceSets {
     main {
         java.srcDirs("gen")
-        resources.srcDir("resources")
+        resources.srcDirs("resources")
+        resources.exclude("server/**/*")
     }
 }
 
-tasks {
-    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-        kotlinOptions.jvmTarget = buildVersionData.jvmTarget
+// ============= IntelliJ 平台配置 =============
+intellijPlatform {
+    buildSearchableOptions = false
+    projectName = "IntelliJ-SumnekoLua"
+
+    pluginConfiguration {
+        name = "SumnekoLua"
     }
 
+    publishing {
+        token = System.getenv("PUBLISH_TOKEN")
+    }
+
+    signing {
+        certificateChain = System.getenv("CERTIFICATE_CHAIN")
+        privateKey = System.getenv("PRIVATE_KEY")
+        password = System.getenv("PRIVATE_KEY_PASSWORD")
+    }
+}
+
+// ============= 任务配置 =============
+tasks {
+    // Java 编译配置
+    withType<JavaCompile> {
+        sourceCompatibility = Versions.jvm
+        targetCompatibility = Versions.jvm
+        options.encoding = "UTF-8"
+    }
+
+    // Kotlin 编译配置
+    withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.fromTarget(Versions.jvm))
+        }
+    }
+
+    // 插件XML配置
     patchPluginXml {
+        dependsOn(installDependencies)
         sinceBuild.set(buildVersionData.sinceBuild)
         untilBuild.set(buildVersionData.untilBuild)
     }
 
-    instrumentCode {
-        compilerVersion.set(buildVersionData.instrumentCodeCompilerVersion)
-    }
-
-    signPlugin {
-        certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
-        privateKey.set(System.getenv("PRIVATE_KEY"))
-        password.set(System.getenv("PRIVATE_KEY_PASSWORD"))
-    }
-
-    publishPlugin {
-        token.set(System.getenv("PUBLISH_TOKEN"))
-    }
-
+    // 构建插件
     buildPlugin {
-        dependsOn("install")
-    }
-    // fix by https://youtrack.jetbrains.com/issue/IDEA-325747/IDE-always-actively-disables-LSP-plugins-if-I-ask-the-plugin-to-return-localized-diagnostic-messages.
-    runIde {
-        autoReloadPlugins.set(false)
+        dependsOn(installDependencies)
+
+        // 确保二进制文件被包含在插件分发包中
+        from("src/main/resources/server") {
+            into("server")
+        }
     }
 
+    // 准备沙盒环境
     prepareSandbox {
-        doLast {
-            copy {
-                from("${project.projectDir}/src/main/resources/server")
-                into("${destinationDir.path}/${pluginName.get()}/server")
-            }
+        dependsOn(installDependencies)
+
+        from("src/main/resources/server") {
+            into("server")
         }
+
+        from("src/main/resources/debugger") {
+            into("debugger")
+        }
+
+    }
+
+    // 清理任务
+    clean {
+        dependsOn(cleanDependencies)
     }
 }

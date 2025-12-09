@@ -16,48 +16,164 @@
 
 package com.tang.intellij.lua.highlighting
 
-import com.intellij.execution.process.ConsoleHighlighter
 import com.intellij.ide.highlighter.custom.CustomHighlighterColors
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors
 import com.intellij.openapi.editor.colors.TextAttributesKey
+import com.intellij.openapi.editor.markup.TextAttributes
+import com.intellij.ui.JBColor
+import java.awt.Color
+import java.awt.Font
 
 /**
- *
+ * Lua 高亮数据 - 增强版，支持可配置和明显的 LSP 高亮
  * Created by TangZX on 2016/11/22.
  */
 object LuaHighlightingData {
-    val DOC_COMMENT_TAG = TextAttributesKey.createTextAttributesKey("LUA_DOC_TAG", DefaultLanguageHighlighterColors.DOC_COMMENT_TAG)
-    val DOC_COMMENT_TAG_VALUE = TextAttributesKey.createTextAttributesKey("LUA_DOC_VALUE", DefaultLanguageHighlighterColors.DOC_COMMENT_TAG_VALUE)
-    val DOC_KEYWORD = TextAttributesKey.createTextAttributesKey("LUA_DOC_KEYWORD", DefaultLanguageHighlighterColors.KEYWORD)
-    val CLASS_NAME = TextAttributesKey.createTextAttributesKey("LUA_CLASS_NAME", DefaultLanguageHighlighterColors.CLASS_NAME)
-    val CLASS_REFERENCE = TextAttributesKey.createTextAttributesKey("LUA_CLASS_REFERENCE", DefaultLanguageHighlighterColors.CLASS_REFERENCE)
-
-    val LOCAL_VAR = TextAttributesKey.createTextAttributesKey("LUA_LOCAL_VAR", DefaultLanguageHighlighterColors.LOCAL_VARIABLE)
-    val PARAMETER = TextAttributesKey.createTextAttributesKey("LUA_PARAMETER", CustomHighlighterColors.CUSTOM_KEYWORD3_ATTRIBUTES)
+    // 原有的基础高亮样式
+    val CLASS_NAME =
+        TextAttributesKey.createTextAttributesKey("LUA_CLASS_NAME", DefaultLanguageHighlighterColors.CLASS_NAME)
+    val LOCAL_VAR =
+        TextAttributesKey.createTextAttributesKey("LUA_LOCAL_VAR", DefaultLanguageHighlighterColors.LOCAL_VARIABLE)
+    val PARAMETER =
+        TextAttributesKey.createTextAttributesKey("LUA_PARAMETER", CustomHighlighterColors.CUSTOM_KEYWORD3_ATTRIBUTES)
     val FIELD = TextAttributesKey.createTextAttributesKey("LUA_FIELD")
-    val GLOBAL_FUNCTION = TextAttributesKey.createTextAttributesKey("LUA_GLOBAL_FUNCTION_ID", DefaultLanguageHighlighterColors.STATIC_FIELD)
-    val GLOBAL_VAR = TextAttributesKey.createTextAttributesKey("LUA_GLOBAL_VAR", DefaultLanguageHighlighterColors.STATIC_FIELD)
+    val GLOBAL_VAR =
+        TextAttributesKey.createTextAttributesKey("LUA_GLOBAL_VAR", DefaultLanguageHighlighterColors.STATIC_FIELD)
     val KEYWORD = TextAttributesKey.createTextAttributesKey("LUA_KEYWORD", DefaultLanguageHighlighterColors.KEYWORD)
     val SELF = TextAttributesKey.createTextAttributesKey("LUA_SELF", CustomHighlighterColors.CUSTOM_KEYWORD2_ATTRIBUTES)
-    val LINE_COMMENT = TextAttributesKey.createTextAttributesKey("LUA_LINE_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT)
-    val DOC_COMMENT = TextAttributesKey.createTextAttributesKey("LUA_DOC_COMMENT", DefaultLanguageHighlighterColors.DOC_COMMENT)
+    val LINE_COMMENT =
+        TextAttributesKey.createTextAttributesKey("LUA_LINE_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT)
+    val DOC_COMMENT =
+        TextAttributesKey.createTextAttributesKey("LUA_DOC_COMMENT", DefaultLanguageHighlighterColors.DOC_COMMENT)
     val NUMBER = TextAttributesKey.createTextAttributesKey("LUA_NUMBER", DefaultLanguageHighlighterColors.NUMBER)
     val STRING = TextAttributesKey.createTextAttributesKey("LUA_STRING", DefaultLanguageHighlighterColors.STRING)
     val BRACKETS = TextAttributesKey.createTextAttributesKey("LUA_BRACKETS", DefaultLanguageHighlighterColors.BRACKETS)
     val BRACES = TextAttributesKey.createTextAttributesKey("LUA_BRACES", DefaultLanguageHighlighterColors.BRACES)
-    val PARENTHESES = TextAttributesKey.createTextAttributesKey("LUA_PARENTHESES", DefaultLanguageHighlighterColors.PARENTHESES)
+    val PARENTHESES =
+        TextAttributesKey.createTextAttributesKey("LUA_PARENTHESES", DefaultLanguageHighlighterColors.PARENTHESES)
     val DOT = TextAttributesKey.createTextAttributesKey("LUA_DOT", DefaultLanguageHighlighterColors.DOT)
-    val OPERATORS = TextAttributesKey.createTextAttributesKey("LUA_OPERATORS", DefaultLanguageHighlighterColors.OPERATION_SIGN)
-    val SEMICOLON = TextAttributesKey.createTextAttributesKey("LUA_SEMICOLON", DefaultLanguageHighlighterColors.SEMICOLON)
+    val OPERATORS =
+        TextAttributesKey.createTextAttributesKey("LUA_OPERATORS", DefaultLanguageHighlighterColors.OPERATION_SIGN)
+    val SEMICOLON =
+        TextAttributesKey.createTextAttributesKey("LUA_SEMICOLON", DefaultLanguageHighlighterColors.SEMICOLON)
     val COMMA = TextAttributesKey.createTextAttributesKey("LUA_COMMA", DefaultLanguageHighlighterColors.COMMA)
-    val PRIMITIVE_TYPE = TextAttributesKey.createTextAttributesKey("LUA_PRIMITIVE_TYPE",  DefaultLanguageHighlighterColors.KEYWORD)
-    val UP_VALUE = TextAttributesKey.createTextAttributesKey("LUA_UP_VALUE")
-    val STD_API = TextAttributesKey.createTextAttributesKey("LUA_STD_API")
-    val TYPE_ALIAS = TextAttributesKey.createTextAttributesKey("LUA_TYPE_ALIAS", DefaultLanguageHighlighterColors.CLASS_NAME)
-    val INSTANCE_METHOD = TextAttributesKey.createTextAttributesKey("LUA_INSTANCE_METHOD", DefaultLanguageHighlighterColors.INSTANCE_METHOD)
-    val STATIC_METHOD = TextAttributesKey.createTextAttributesKey("LUA_STATIC_METHOD", DefaultLanguageHighlighterColors.STATIC_METHOD)
+    val PRIMITIVE_TYPE =
+        TextAttributesKey.createTextAttributesKey("LUA_PRIMITIVE_TYPE", DefaultLanguageHighlighterColors.KEYWORD)
+    val INSTANCE_METHOD = TextAttributesKey.createTextAttributesKey(
+        "LUA_INSTANCE_METHOD",
+        DefaultLanguageHighlighterColors.INSTANCE_METHOD
+    )
+    val STATIC_METHOD =
+        TextAttributesKey.createTextAttributesKey("LUA_STATIC_METHOD", DefaultLanguageHighlighterColors.STATIC_METHOD)
 
     //region
-    val REGION_HEADER = TextAttributesKey.createTextAttributesKey("LUA_REGION_START", DefaultLanguageHighlighterColors.DOC_COMMENT)
+    val REGION_HEADER =
+        TextAttributesKey.createTextAttributesKey("LUA_REGION_START", DefaultLanguageHighlighterColors.DOC_COMMENT)
     val REGION_DESC = TextAttributesKey.createTextAttributesKey("LUA_REGION_DESC")
+
+    // ===== LSP 增强高亮样式 - 更加明显和可配置 =====
+
+    /**
+     * LSP 只读参数 - 使用蓝色背景高亮
+     */
+    val LSP_READ_ONLY_PARAM = TextAttributesKey.createTextAttributesKey(
+        "LUA_LSP_READ_ONLY_PARAM",
+        TextAttributes().apply {
+            foregroundColor = JBColor(Color(0x0070C0), Color(0x6CB4EE))  // 蓝色
+            fontType = Font.ITALIC
+        }
+    )
+
+    /**
+     * LSP 全局变量 - 使用粉红色高亮，加粗
+     */
+    val LSP_GLOBAL_VAR = TextAttributesKey.createTextAttributesKey(
+        "LUA_LSP_GLOBAL_VAR",
+        TextAttributes().apply {
+            foregroundColor = JBColor(Color(0xFF6699), Color(0xFF88AA))  // 粉红色
+            fontType = Font.BOLD
+        }
+    )
+
+    /**
+     * LSP 只读局部变量 - 使用浅蓝色，表示不可变的安全变量
+     */
+    val LSP_READ_ONLY_LOCAL = TextAttributesKey.createTextAttributesKey(
+        "LUA_LSP_READ_ONLY_LOCAL",
+        TextAttributes().apply {
+            foregroundColor = JBColor(Color(0x4A90E2), Color(0x6BB6FF))  // 浅蓝色，清爽的色调
+            fontType = Font.ITALIC
+        }
+    )
+
+    /**
+     * LSP 可变局部变量 - 使用深绿色带下划线，强调可变性
+     */
+    val LSP_MUT_LOCAL = TextAttributesKey.createTextAttributesKey(
+        "LUA_LSP_MUT_LOCAL",
+        TextAttributes().apply {
+            foregroundColor = JBColor(Color(0x2B8C2B), Color(0x4CAF50))  // 更好看的绿色
+            fontType = Font.PLAIN
+            effectType = com.intellij.openapi.editor.markup.EffectType.LINE_UNDERSCORE
+            effectColor = JBColor(Color(0x2B8C2B), Color(0x4CAF50))  // 下划线颜色与文字颜色一致
+        }
+    )
+
+    /**
+     * LSP 可变参数 - 使用类似Java参数的颜色，带下划线强调
+     */
+    val LSP_MUT_PARAM = TextAttributesKey.createTextAttributesKey(
+        "LUA_LSP_MUT_PARAM",
+        TextAttributes().apply {
+            foregroundColor = JBColor(Color(0x871094), Color(0xB381C5))  // 紫色，类似Java参数
+            fontType = Font.BOLD
+            effectType = com.intellij.openapi.editor.markup.EffectType.LINE_UNDERSCORE
+            effectColor = JBColor(Color(0x871094), Color(0xB381C5))
+        }
+    )
+
+    /**
+     * LSP 文档强调 - 使用金色背景
+     */
+    val LSP_DOC_EM = TextAttributesKey.createTextAttributesKey(
+        "LUA_LSP_DOC_EM",
+        TextAttributes().apply {
+            foregroundColor = JBColor(Color(0xB8860B), Color(0xFFD700))  // 金色
+            fontType = Font.ITALIC
+        }
+    )
+
+    /**
+     * LSP 文档加粗 - 使用深红色，加粗
+     */
+    val LSP_DOC_STRONG = TextAttributesKey.createTextAttributesKey(
+        "LUA_LSP_DOC_STRONG",
+        TextAttributes().apply {
+            foregroundColor = JBColor(Color(0x8B0000), Color(0xFF6B6B))  // 深红色
+            fontType = Font.BOLD
+        }
+    )
+
+    /**
+     * 创建自定义高亮样式的工具方法
+     */
+    fun createCustomHighlight(
+        name: String,
+        foreground: Color? = null,
+        background: Color? = null,
+        fontType: Int = Font.PLAIN,
+        effectType: com.intellij.openapi.editor.markup.EffectType? = null,
+        effectColor: Color? = null
+    ): TextAttributesKey {
+        return TextAttributesKey.createTextAttributesKey(
+            name,
+            TextAttributes().apply {
+                foreground?.let { foregroundColor = JBColor(it, it) }
+                background?.let { backgroundColor = JBColor(it, it) }
+                this.fontType = fontType
+                effectType?.let { this.effectType = it }
+                effectColor?.let { this.effectColor = JBColor(it, it) }
+            }
+        )
+    }
 }

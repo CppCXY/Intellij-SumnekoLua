@@ -7,7 +7,13 @@ import com.intellij.psi.PsiElement;
 
 public interface LuaIfStat extends LuaStatement {
 
+  @Nullable
+  LuaElseClause getElseClause();
+
   @NotNull
-  List<LuaExpr> getExprList();
+  List<LuaElseifClause> getElseifClauseList();
+
+  @Nullable
+  LuaExpr getExpr();
 
 }

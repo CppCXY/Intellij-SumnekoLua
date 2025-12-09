@@ -139,7 +139,7 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends>com.redhat.devtools.lsp4ij</depends>
-    <idea-version since-build="223.2"/>
+    <idea-version since-build="251"/>
     <!-- Extension points defined by the plugin.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
@@ -157,27 +157,47 @@
         <lang.parserDefinition language="Lua" implementationClass="com.tang.intellij.lua.lang.LuaParserDefinition"/>
         <lang.braceMatcher language="Lua" implementationClass="com.tang.intellij.lua.braces.LuaBraceMatcher"/>
         <lang.quoteHandler language="Lua"
-                           implementationClass="com.tang.intellij.lua.codeInsight.editorActions.LuaQuoteHandler"/>
+                           implementationClass="com.tang.intellij.lua.codeInsight.editorActions.LuaQuoteHandler"
+                           order="first"/>
+        <!--        <languageInjector implementation="com.tang.intellij.lua.lang.LuaLanguageInjector"/>-->
+
         <customPasteProvider
                 implementation="com.tang.intellij.lua.codeInsight.editorActions.StringLiteralPasteProvider"/>
+
+        <!-- 自定义单词选择处理器 -->
+        <extendWordSelectionHandler
+                implementation="com.tang.intellij.lua.codeInsight.editorActions.LuaWordSelectionHandler"/>
 
         <!--        highlight-->
         <lang.syntaxHighlighterFactory
                 language="Lua"
                 implementationClass="com.tang.intellij.lua.highlighting.LuaSyntaxHighlighterFactory"/>
-<!--        <highlightErrorFilter implementation="com.tang.intellij.lua.highlighting.LuaHighlightErrorFilter"/>-->
-        <annotator language="Lua" implementationClass="com.tang.intellij.lua.annotator.LuaAnnotator"/>
+        <!--        <highlightErrorFilter implementation="com.tang.intellij.lua.highlighting.LuaHighlightErrorFilter"/>-->
+
+        <!-- LSP 外部注解器 - 更高优先级 -->
+<!--        <externalAnnotator language="Lua"-->
+<!--                           implementationClass="com.tang.intellij.lua.annotator.LuaLspExternalAnnotator"/>-->
 
         <highlightUsagesHandlerFactory
                 implementation="com.tang.intellij.lua.codeInsight.highlighting.LuaHighlightUsagesHandlerFactory"/>
 
-        <readWriteAccessDetector implementation="com.tang.intellij.lua.codeInsight.LuaReadWriteAccessDetector"/>
-<!--        <platform.lsp.serverSupportProvider implementation="com.cppcxy.ide.lsp.SumnekoLspServerSupportProvider"/>-->
+        <spellchecker.support implementationClass="com.tang.intellij.lua.spellchecker.LuaSpellcheckingStrategy" language="Lua"/>
+        <spellchecker.bundledDictionaryProvider implementation="com.tang.intellij.lua.spellchecker.LuaSpellBundledDictionaryProvider"/>
+
+        <!-- <readWriteAccessDetector implementation="com.tang.intellij.lua.codeInsight.LuaReadWriteAccessDetector"/> -->
 
         <!-- file template provider -->
         <fileTemplateGroup implementation="com.tang.intellij.lua.actions.LuaFileTemplateProvider"/>
+        <!-- Internal file templates - must be registered for CreateFileFromTemplateAction -->
+        <internalFileTemplate name="LuaClass"/>
+        <internalFileTemplate name="LuaModule"/>
+        <internalFileTemplate name="LuaEnum"/>
+        <internalFileTemplate name="LuaUnity"/>
+        <internalFileTemplate name="LuaEmpty"/>
         <!--CreateFromTemplate-->
         <createFromTemplateHandler implementation="com.tang.intellij.lua.actions.LuaCreateFromTemplateHandler"/>
+        <moduleType id="LUA_MODULE" implementationClass="com.tang.intellij.lua.project.LuaModuleType"/>
+        <directoryProjectGenerator implementation="com.tang.intellij.lua.project.LuaDirectoryProjectGenerator"/>
         <!-- for displaying the statusbar icon -->
 
         <!-- for settings-->
@@ -193,12 +213,17 @@
 
         <statusBarWidgetFactory id="SumnekoBar" implementation="com.cppcxy.ide.editor.statusbar.StatusBarWidgetFactory"/>
         <lang.commenter language="Lua" implementationClass="com.tang.intellij.lua.comment.LuaCommenter"/>
-
+        <codeInsight.parameterInfo
+                language="Lua"
+                implementationClass="com.redhat.devtools.lsp4ij.features.signatureHelp.LSPParameterInfoHandler"/>
         <!-- LSP textDocument/documentSymbol -->
         <lang.psiStructureViewFactory
                 id="SumnekoLua"
                 language="Lua"
                 implementationClass="com.redhat.devtools.lsp4ij.features.documentSymbol.LSPDocumentSymbolStructureViewFactory"/>
+        <enterHandlerDelegate implementation="com.tang.intellij.lua.editor.LuaEnterHandlerDelegate"/>
+        <typedHandler implementation="com.tang.intellij.lua.editor.LuaTypedHandler"/>
+        <lineIndentProvider implementation="com.tang.intellij.lua.editor.LuaLineIndentProvider"/>
     </extensions>
     <extensions defaultExtensionNs="com.redhat.devtools.lsp4ij">
         <server id="SumnekoLua"

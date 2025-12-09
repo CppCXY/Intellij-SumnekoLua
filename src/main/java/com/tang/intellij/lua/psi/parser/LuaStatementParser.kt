@@ -32,6 +32,7 @@ object LuaStatementParser : GeneratedParserUtilBase() {
             DOUBLE_COLON -> parseLabelStatement(b)
             GOTO -> parseGotoStatement(b)
             BREAK -> parseBreakStatement(b)
+            CONTINUE -> parseContinueStatement(b)
             RETURN -> parseReturnStatement(b, l)
             LOCAL -> parseLocalDef(b, l)
             FOR -> parseForStatement(b, l)
@@ -55,7 +56,7 @@ object LuaStatementParser : GeneratedParserUtilBase() {
     }
 
     // 'if' expr 'then' <<lazyBlock>> ('elseif' expr 'then' <<lazyBlock>>)* ('else' <<lazyBlock>>)? 'end'
-    private fun parseIfStatement(b: PsiBuilder, l: Int): PsiBuilder.Marker? {
+    private fun parseIfStatement(b: PsiBuilder, l: Int): PsiBuilder.Marker {
         val m = b.mark()
         b.advanceLexer() // if
 
@@ -201,6 +202,14 @@ object LuaStatementParser : GeneratedParserUtilBase() {
         return m
     }
 
+    private fun parseContinueStatement(b: PsiBuilder): PsiBuilder.Marker {
+        val m = b.mark()
+        b.advanceLexer()
+
+        doneStat(b, m, CONTINUE_STAT)
+        return m
+    }
+
     private fun parseReturnStatement(b: PsiBuilder, l: Int): PsiBuilder.Marker {
         val m = b.mark()
         b.advanceLexer()
@@ -244,7 +253,7 @@ object LuaStatementParser : GeneratedParserUtilBase() {
         return null
     }
 
-    private fun parseNameList(b: PsiBuilder): PsiBuilder.Marker? {
+    private fun parseNameList(b: PsiBuilder): PsiBuilder.Marker {
         var m = b.mark()
         if (expectError(b, ID) { "ID" }) {
             m.done(NAME_DEF)
@@ -372,13 +381,15 @@ object LuaStatementParser : GeneratedParserUtilBase() {
                 NAME_EXPR, INDEX_EXPR -> {
                     var c = expr
                     var isAssignment = false
+                    var isCompoundAssignment = false
+
                     while (b.tokenType == COMMA) {
                         isAssignment = true
                         b.advanceLexer() // ,
                         expectExpr(b, l + 1)
                     }
 
-                    // =
+                    // = (普通赋值)
                     if (isAssignment) {
                         c = c.precede()
                         c.done(VAR_LIST)
@@ -386,15 +397,24 @@ object LuaStatementParser : GeneratedParserUtilBase() {
                     } else if (b.tokenType == ASSIGN) {
                         c = c.precede()
                         c.done(VAR_LIST)
-
                         b.advanceLexer()
                         isAssignment = true
+                    }
+                    // 复合赋值操作符 (+=, -=, *=, 等)
+                    else if (isCompoundAssignOp(b.tokenType)) {
+                        isCompoundAssignment = true
+                        b.advanceLexer() // 消费复合赋值操作符
                     }
 
                     if (isAssignment) {
                         expectExprList(b, l + 1)
                         val m = c.precede()
                         doneStat(b, m, ASSIGN_STAT)
+                        return m
+                    } else if (isCompoundAssignment) {
+                        expectExpr(b, l + 1) // 复合赋值只需要一个表达式
+                        val m = c.precede()
+                        doneStat(b, m, COMPOUND_ASSIGN_STAT)
                         return m
                     }
                 }
@@ -407,7 +427,7 @@ object LuaStatementParser : GeneratedParserUtilBase() {
         return null
     }
 
-    private fun parseEmptyStatement(b: PsiBuilder): PsiBuilder.Marker? {
+    private fun parseEmptyStatement(b: PsiBuilder): PsiBuilder.Marker {
         val m = b.mark()
         while (b.tokenType == SEMI) {
             b.advanceLexer() // ;
@@ -416,8 +436,19 @@ object LuaStatementParser : GeneratedParserUtilBase() {
         return m
     }
 
-    private fun doneStat(b:PsiBuilder, m: PsiBuilder.Marker, type: IElementType) {
+    private fun doneStat(b: PsiBuilder, m: PsiBuilder.Marker, type: IElementType) {
         expect(b, SEMI)
         done(m, type)
+    }
+
+    // 检查是否为复合赋值操作符
+    private fun isCompoundAssignOp(tokenType: IElementType?): Boolean {
+        return when (tokenType) {
+            PLUS_ASSIGN, MINUS_ASSIGN, MULT_ASSIGN, DIV_ASSIGN,
+            MOD_ASSIGN, EXP_ASSIGN, DOUBLE_DIV_ASSIGN,
+            BIT_OR_ASSIGN, BIT_AND_ASSIGN, BIT_LTLT_ASSIGN, BIT_RTRT_ASSIGN -> true
+
+            else -> false
+        }
     }
 }

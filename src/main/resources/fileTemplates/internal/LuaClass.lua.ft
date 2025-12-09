@@ -1,0 +1,21 @@
+---
+--- ${NAME} class
+--- Created by ${USER}
+--- DateTime: ${DATE} ${TIME}
+---
+
+---@class ${NAME}
+---@field public name string
+local ${NAME} = {}
+${NAME}.__index = ${NAME}
+
+---Constructor
+---@param name string
+---@return ${NAME}
+function ${NAME}.new(name)
+    local self = setmetatable({}, ${NAME})
+    self.name = name or "${NAME}"
+    return self
+end
+
+return ${NAME}

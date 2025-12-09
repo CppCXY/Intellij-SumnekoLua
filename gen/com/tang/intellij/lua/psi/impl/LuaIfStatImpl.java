@@ -28,9 +28,21 @@ public class LuaIfStatImpl extends LuaStatementImpl implements LuaIfStat {
   }
 
   @Override
+  @Nullable
+  public LuaElseClause getElseClause() {
+    return findChildByClass(LuaElseClause.class);
+  }
+
+  @Override
   @NotNull
-  public List<LuaExpr> getExprList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, LuaExpr.class);
+  public List<LuaElseifClause> getElseifClauseList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, LuaElseifClause.class);
+  }
+
+  @Override
+  @Nullable
+  public LuaExpr getExpr() {
+    return findChildByClass(LuaExpr.class);
   }
 
 }

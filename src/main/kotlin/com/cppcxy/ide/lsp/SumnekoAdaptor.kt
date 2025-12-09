@@ -19,7 +19,7 @@ object SumnekoAdaptor {
             return if (SystemInfoRt.isWindows) {
                 "win32-x64/bin/lua-language-server.exe"
             } else if (SystemInfoRt.isMac) {
-                if (System.getProperty("os.arch") == "arm64") {
+                if (System.getProperty("os.arch") == "aarch64") {
                     "darwin-arm64/bin/lua-language-server"
                 } else {
                     "darwin-x64/bin/lua-language-server"

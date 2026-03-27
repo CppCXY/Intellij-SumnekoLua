@@ -12,7 +12,7 @@ group = "com.cppcxy"
 
 // 版本配置
 object Versions {
-    const val luals = "3.16.1"
+    const val luals = "3.17.1"
     const val jvm = "17"
     const val ideaSDK = "2025.2"
 }
@@ -31,7 +31,7 @@ private val buildDataList = listOf(
         ideaSDKShortVersion = "252",
         ideaSDKVersion = "2025.2",
         sinceBuild = "252",
-        untilBuild = "253.*"
+        untilBuild = "261.*"
     )
 )
 

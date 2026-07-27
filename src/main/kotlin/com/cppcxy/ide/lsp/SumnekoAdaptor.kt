@@ -10,6 +10,7 @@ import com.intellij.openapi.util.SystemInfoRt
 import java.io.File
 import java.util.*
 
+@Suppress("UnstableApiUsage")
 object SumnekoAdaptor {
     private val pluginSource: String?
         get() = PluginManagerCore.getPlugin(PluginId.getId("com.cppcxy.Intellij-SumnekoLua"))?.pluginPath?.toFile()?.path

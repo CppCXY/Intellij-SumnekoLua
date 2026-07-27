@@ -2,7 +2,7 @@ import de.undercouch.gradle.tasks.download.Download
 
 plugins {
     id("java")
-    id("org.jetbrains.kotlin.jvm") version "2.1.20-Beta2"
+    id("org.jetbrains.kotlin.jvm") version "2.3.0"
     id("org.jetbrains.intellij.platform") version "2.6.0"
     id("de.undercouch.download") version "5.6.0"
 }
@@ -12,26 +12,23 @@ group = "com.cppcxy"
 
 // 版本配置
 object Versions {
-    const val luals = "3.17.1"
+    const val luals = "3.18.2"
     const val jvm = "17"
-    const val ideaSDK = "2025.2"
+    const val ideaSDK = "2026.2"
 }
 
 // 构建数据配置
 data class BuildData(
     val ideaSDKShortVersion: String,
-    val ideaSDKVersion: String,
     val sinceBuild: String,
     val untilBuild: String,
-    val type: String = "IC"
 )
 
 private val buildDataList = listOf(
     BuildData(
-        ideaSDKShortVersion = "252",
-        ideaSDKVersion = "2025.2",
-        sinceBuild = "252",
-        untilBuild = "261.*"
+        ideaSDKShortVersion = "262",
+        sinceBuild = "262.0",
+        untilBuild = "262.*"
     )
 )
 
@@ -153,9 +150,9 @@ repositories {
 // ============= 依赖配置 =============
 dependencies {
     intellijPlatform {
-        intellijIdeaCommunity(Versions.ideaSDK)
+        intellijIdeaUltimate(Versions.ideaSDK)
         bundledPlugins("com.intellij.java", "org.jetbrains.kotlin")
-        plugins("com.redhat.devtools.lsp4ij:0.18.0")
+        plugins("com.redhat.devtools.lsp4ij:0.19.0")
     }
 }
 

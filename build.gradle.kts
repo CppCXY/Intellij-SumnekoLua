@@ -3,7 +3,7 @@ import de.undercouch.gradle.tasks.download.Download
 plugins {
     id("java")
     id("org.jetbrains.kotlin.jvm") version "2.3.0"
-    id("org.jetbrains.intellij.platform") version "2.6.0"
+    id("org.jetbrains.intellij.platform") version "2.8.0"
     id("de.undercouch.download") version "5.6.0"
 }
 
@@ -27,7 +27,7 @@ data class BuildData(
 private val buildDataList = listOf(
     BuildData(
         ideaSDKShortVersion = "262",
-        sinceBuild = "262.0",
+        sinceBuild = "261",
         untilBuild = "262.*"
     )
 )
@@ -123,20 +123,6 @@ val cleanDependencies by tasks.registering(Delete::class) {
 
 // ============= 仓库配置 =============
 repositories {
-    // 添加阿里云镜像仓库优先使用
-    maven {
-        url = uri("https://maven.aliyun.com/repository/central")
-        name = "AliyunMavenCentral"
-    }
-    maven {
-        url = uri("https://maven.aliyun.com/repository/gradle-plugin")
-        name = "AliyunGradlePlugin"
-    }
-    maven {
-        url = uri("https://maven.aliyun.com/repository/google")
-        name = "AliyunGoogle"
-    }
-
     // 保留原有仓库作为备用
     mavenCentral()
     google()

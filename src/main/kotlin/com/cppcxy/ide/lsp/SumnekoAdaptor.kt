@@ -7,13 +7,17 @@ import com.intellij.openapi.extensions.PluginId
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManager
 import com.intellij.openapi.util.SystemInfoRt
+import com.intellij.util.PathUtil
 import java.io.File
+import java.nio.file.Path
+import java.nio.file.Paths
 import java.util.*
 
-@Suppress("UnstableApiUsage")
 object SumnekoAdaptor {
-    private val pluginSource: String?
-        get() = PluginManagerCore.getPlugin(PluginId.getId("com.cppcxy.Intellij-SumnekoLua"))?.pluginPath?.toFile()?.path
+    private val pluginPath: Path? by lazy {
+        val parent = Paths.get(PathUtil.getJarPathForClass(SumnekoAdaptor::class.java)).parent
+        if (parent?.fileName?.toString() == "lib") parent.parent else parent
+    }
 
     private val exe: String
         get() {
@@ -35,7 +39,9 @@ object SumnekoAdaptor {
             if (SumnekoSettings.getInstance().location.isNotEmpty()) {
                 return SumnekoSettings.getInstance().location
             }
-            return "$pluginSource/server/$exe"
+            
+            return pluginPath?.resolve("server")?.resolve(exe)?.toFile()?.absolutePath ?: ""
+            //return "$pluginSource/server/$exe"
         }
 
     val locale: String
